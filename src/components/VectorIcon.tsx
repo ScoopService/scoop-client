@@ -13,7 +13,7 @@ export interface VectorProps {
 export const VectorIcon = ({
   name,
   size = 20,
-  color = 'white',
+  color = 'black',
   type = 'ionicon',
 }: //action
 VectorProps) => {
@@ -23,5 +23,3 @@ VectorProps) => {
     </TouchableOpacity>
   );
 };
-
-const styles = StyleSheet.create({});

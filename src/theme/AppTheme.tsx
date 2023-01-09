@@ -1,10 +1,8 @@
-import { StyleSheet } from "react-native";
-
+import {StyleSheet} from 'react-native';
 
 export const colors = {
-  primary: '#7fde50'
-}
-
+  primary: '#ff0000',
+};
 
 export const styles = StyleSheet.create({
   globalMargin: {
@@ -20,18 +18,18 @@ export const styles = StyleSheet.create({
     borderRadius: 20,
     // backgroundColor: 'blue',
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
   },
   avatar: {
     height: 150,
     width: 150,
-    borderRadius: 100
+    borderRadius: 100,
   },
   menuContainer: {
     flex: 1,
     //backgroundColor: 'blue',
     marginVertical: 20,
-    marginHorizontal: 10
+    marginHorizontal: 10,
   },
   menuItem: {
     marginLeft: 2,
