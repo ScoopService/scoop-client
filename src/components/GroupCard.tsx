@@ -1,6 +1,8 @@
 import styled from 'styled-components/native';
 import React, {useEffect, useState} from 'react';
-import {Dimensions, Text, TouchableOpacity} from 'react-native';
+import {Dimensions, Text, TouchableOpacity, View} from 'react-native';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import FeatherIcons from 'react-native-vector-icons/Feather';
 
 const {width: SCREEN_WIDTH} = Dimensions.get('window');
 
@@ -26,7 +28,7 @@ const Container = styled.View`
   width: 70%;
   height: 100%;
   //background-color: #104b00;
-  background-color: #FAFAFA;
+  background-color: #fafafa;
   border-bottom-right-radius: 10px;
   border-top-right-radius: 10px;
   justify-content: center;
@@ -49,6 +51,7 @@ const GroupTitle = styled.Text`
 //TODO : 글자 수 제한하기 (넘어가면 안되서)
 
 const GroupDescription = styled.Text`
+  color : #7C7C7C;
   height: 20%;
   font-weight: 600;
   font-size: 11px;
@@ -63,23 +66,35 @@ const DetailContainer = styled.View`
 
 const GroupDetail = styled.Text`
   //background-color: #80c76d;
+  color : #808080;
   font-size: 10px;
+  margin-left: 2px;
 `;
 
 const GroupCard = () => {
-
   return (
     <TouchableOpacity>
       <Wrapper>
-        <GroupThumbnail source={require('../assets/images/Rectangle2193.png')} />
+        <GroupThumbnail
+          source={require('../assets/images/Rectangle2193.png')}
+        />
         <Container>
           <GroupInfo>
             <GroupTitle>내일은 농구왕</GroupTitle>
             <GroupDescription>우리 모두 강백호가 되어보자</GroupDescription>
             <DetailContainer>
-              <GroupDetail>광진구 OO체육관</GroupDetail>
-              <GroupDetail>11월 17일 오후 7:00</GroupDetail>
-              <GroupDetail>2/6</GroupDetail>
+              <View style={{flexDirection: 'row', marginTop: 2}}>
+                <Ionicons name={'location-sharp'} size={12} color={'#39CB51'} />
+                <GroupDetail>광진구 OO체육관</GroupDetail>
+              </View>
+              <View style={{flexDirection: 'row', marginTop: 2}}>
+                <FeatherIcons name={'calendar'} size={12} color={'#39CB51'} />
+                <GroupDetail>11월 17일 오후 7:00</GroupDetail>
+              </View>
+              <View style={{flexDirection: 'row', marginTop: 2}}>
+                <Ionicons name={'people'} size={12} color={'#39CB51'} />
+                <GroupDetail>2/6</GroupDetail>
+              </View>
             </DetailContainer>
             {/*TODO : <ExerciseTags>, <Attendees> */}
           </GroupInfo>

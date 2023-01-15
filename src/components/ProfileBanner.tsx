@@ -5,45 +5,45 @@ import {Dimensions} from 'react-native';
 const {width: SCREEN_WIDTH} = Dimensions.get('window');
 
 const ProfileImage = styled.Image`
-  width: 70px;
-  height: 70px;
+  width: 50px;
+  height: 50px;
   border-radius: 100px;
   background-color: white;
   margin-left: 25px;
 `;
 
 const Wrapper = styled.View`
-  background-color: white;
-  //background-color: #104B00;
+  //background-color: white;
+  background-color: #39CB51;
   flex-direction: row;
   align-items: center;
-  height: 18%;
+  height: 10%;
   margin-bottom: -10px;
 `;
 
 const GreetingsContainer = styled.View`
-  background-color: white;
+  //background-color: #5DAE48;
   flex-direction: column;
   justify-content: center;
-  height: 100px;
+  height: 70%;
   margin-left: 12px;
 `;
 
 const GreetingsName = styled.Text`
-  color: black;
+  color: white;
   flex-direction: column;
   justify-content: center;
   font-weight: 600;
-  font-size: 20px;
+  font-size: 18px;
 `;
 
 const GreetingsText = styled.Text`
-  color: black;
+  color: white;
   flex-direction: column;
   justify-content: center;
   font-weight: 500;
   font-size: 16px;
-  margin-top: 10px;
+  margin-top: 3px;
 `;
 
 //TODO : 폰트 설정하기

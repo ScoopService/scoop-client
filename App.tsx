@@ -1,12 +1,20 @@
 import {NavigationContainer} from '@react-navigation/native';
 import React from 'react';
-import {TabsNavigator} from './src/navigator/TabsNavigator';
+import {
+  BottomTabsNavigator,
+  MaterialTabsNavigator,
+} from './src/navigator/BottomTabsNavigator';
+import {SafeAreaView, StatusBar} from 'react-native';
 
 const App = () => {
   return (
-    <NavigationContainer>
-      <TabsNavigator />
-    </NavigationContainer>
+    <SafeAreaView style={{flex: 1}}>
+      <StatusBar backgroundColor={'white'} barStyle={'dark-content'} />
+      <NavigationContainer>
+        {/*<MaterialTabsNavigator />*/}
+        <BottomTabsNavigator />
+      </NavigationContainer>
+    </SafeAreaView>
   );
 };
 
