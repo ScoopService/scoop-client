@@ -5,6 +5,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import FeatherIcons from 'react-native-vector-icons/Feather';
 
 const {width: SCREEN_WIDTH} = Dimensions.get('window');
+const {height: SCREEN_HEIGHT} = Dimensions.get('window');
 
 const Wrapper = styled.View`
   background-color: white;
@@ -51,7 +52,7 @@ const GroupTitle = styled.Text`
 //TODO : 글자 수 제한하기 (넘어가면 안되서)
 
 const GroupDescription = styled.Text`
-  color : #7C7C7C;
+  color: #7c7c7c;
   height: 20%;
   font-weight: 600;
   font-size: 11px;
@@ -66,7 +67,7 @@ const DetailContainer = styled.View`
 
 const GroupDetail = styled.Text`
   //background-color: #80c76d;
-  color : #808080;
+  color: #808080;
   font-size: 10px;
   margin-left: 2px;
 `;
