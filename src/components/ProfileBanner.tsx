@@ -3,6 +3,7 @@ import styled from 'styled-components/native';
 import {Dimensions} from 'react-native';
 
 const {width: SCREEN_WIDTH} = Dimensions.get('window');
+const {height: SCREEN_HEIGHT} = Dimensions.get('window');
 
 const ProfileImage = styled.Image`
   width: 50px;
@@ -17,7 +18,7 @@ const Wrapper = styled.View`
   background-color: #39CB51;
   flex-direction: row;
   align-items: center;
-  height: 10%;
+  height: ${SCREEN_HEIGHT/9}px;
   margin-bottom: -10px;
 `;
 

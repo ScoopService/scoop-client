@@ -5,10 +5,10 @@ import styled from 'styled-components/native';
 import ProfileBanner from '../components/ProfileBanner';
 import DateBanner from '../components/DateBanner';
 import GroupCard from '../components/GroupCard';
-import LogoTopBar from "../components/LogoTopBar";
+import LogoTopBar from '../components/LogoTopBar';
 
 const Container = styled.View`
-  flex: 1;
+  //flex: 1;
   //background-color: lightcyan;
   background-color: white;
 `;
@@ -39,6 +39,7 @@ export const Home = () => {
 
   return (
     <ScrollView>
+      {/*TODO : 상단바 스크롤 고정하기 */}
       <Container>
         <LogoTopBar />
         <ProfileBanner nickname="블루비" />
@@ -57,6 +58,8 @@ export const Home = () => {
         />
         <SectionTitle>인기 모임</SectionTitle>
         <PopularGroupsCard>
+          <GroupCard />
+          <GroupCard />
           <GroupCard />
           <GroupCard />
           <GroupCard />
