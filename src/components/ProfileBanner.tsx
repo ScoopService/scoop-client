@@ -5,7 +5,7 @@ import {Dimensions} from 'react-native';
 const {width: SCREEN_WIDTH} = Dimensions.get('window');
 const {height: SCREEN_HEIGHT} = Dimensions.get('window');
 
-const ProfileImage = styled.Image`
+const ProfilePic = styled.Image`
   width: 50px;
   height: 50px;
   border-radius: 100px;
@@ -56,7 +56,7 @@ interface Props {
 const ProfileBanner = ({nickname}: Props) => {
   return (
     <Wrapper>
-      <ProfileImage source={require('../assets/images/Ellipse93.png')} />
+      <ProfilePic source={require('../assets/images/Ellipse93.png')} />
       <GreetingsContainer>
         <GreetingsName>{nickname}님</GreetingsName>
         <GreetingsText>오늘 운동도 함께 즐겨요!</GreetingsText>

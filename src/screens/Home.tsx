@@ -8,7 +8,7 @@ import GroupCard from '../components/GroupCard';
 import LogoTopBar from '../components/LogoTopBar';
 
 const Container = styled.View`
-  //flex: 1;
+  flex: 1;
   //background-color: lightcyan;
   background-color: white;
 `;
@@ -34,7 +34,7 @@ const PopularGroupsCard = styled.View`
 
 export const Home = () => {
   useEffect(() => {
-    //console.log('GroupSearch.tsx effect');
+    //console.log('Home.tsx effect');
   }, []);
 
   return (

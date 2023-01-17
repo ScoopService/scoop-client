@@ -10,8 +10,7 @@ const Wrapper = styled.TouchableOpacity`
   justify-content: center;
   margin-right: 8px;
   border-radius: 4px;
-  border: lightgray;
-  //TODO : Change to Arty Gray 300
+  border: #dfdfdf;
 `;
 
 const FilterText = styled.Text`
