@@ -1,5 +1,5 @@
 import styled from 'styled-components/native';
-import React from 'react';
+import React, {useState} from 'react';
 import {Dimensions, Text, TouchableOpacity, View} from 'react-native';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import Ionicons from 'react-native-vector-icons/Ionicons';
@@ -56,6 +56,7 @@ const FilterIcon = styled.TouchableOpacity`
 
 const FilterBanner = () => {
   let location;
+
 
   return (
     <Wrapper>

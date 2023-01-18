@@ -1,5 +1,5 @@
 import styled from 'styled-components/native';
-import React from 'react';
+import React, {useState} from 'react';
 import {Text} from 'react-native';
 
 const Wrapper = styled.TouchableOpacity`
@@ -14,6 +14,13 @@ const Wrapper = styled.TouchableOpacity`
 `;
 
 const FilterText = styled.Text`
+  color: white;
+  //TODO : HEX 넣기
+  font-size: 12px;
+  margin: 9px 13px;
+`;
+
+const FilterTextSelected = styled.Text`
   color: gray;
   font-size: 12px;
   margin: 9px 13px;
@@ -24,9 +31,23 @@ interface FilterProps {
 }
 
 const FilterButton = (props: FilterProps) => {
-  return (
-    <Wrapper>
-      <FilterText>{props.name}</FilterText>
+  const [isOn, setIsOn] = useState(false);
+
+  return isOn ? (
+    <Wrapper style={{backgroundColor : '#39CB50'}}
+      onPress={() => {
+        // console.log("OnPress", isOn)
+        setIsOn(current => !current);
+      }}>
+      <FilterText style={{color: 'white'}}>{props.name}</FilterText>
+    </Wrapper>
+  ) : (
+    <Wrapper
+      onPress={() => {
+        // console.log("OnPress", isOn)
+        setIsOn(current => !current);
+      }}>
+      <FilterTextSelected>{props.name}</FilterTextSelected>
     </Wrapper>
   );
 };
