@@ -5,7 +5,7 @@ import FilterBanner from '../components/FilterBanner';
 import GroupCard from '../components/GroupCard';
 
 const Container = styled.View`
-  //flex: 1;
+  flex: 1;
   //background-color: #5dae48;
   background-color: white;
 `;
@@ -30,11 +30,12 @@ export const GroupSearch = () => {
 
   return (
     <Container>
-      <FilterBanner />
+      <FilterBanner/>
       {/*<SectionTitle>인기 모임</SectionTitle>*/}
       <ScrollView>
         <PopularGroupsCard>
           {/*TODO : groupArr.map((group, index) => (*/}
+          <GroupCard />
           <GroupCard />
           <GroupCard />
           <GroupCard />
