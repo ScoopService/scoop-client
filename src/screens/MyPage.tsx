@@ -17,6 +17,7 @@ import {RatingBox} from '../components/RatingBox';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import {HorizontalRule} from '../components/HorizontalRule';
+import {RouteLabel} from "../components/RouteLabel";
 
 const {width: SCREEN_WIDTH} = Dimensions.get('window');
 const {height: SCREEN_HEIGHT} = Dimensions.get('window');
@@ -130,7 +131,12 @@ export const MyPage = () => {
           />
         </MyProfileBanner>
       </ProfileContainer>
-      <HorizontalRule/>
+      <HorizontalRule />
+
+      <RouteLabel title={'모임관리'} route={'manageGroups'} />
+      <RouteLabel title={'참여 중인 모임'} route={'activeGroups'} />
+      <RouteLabel title={'찜한 모임'} route={'starredGroups'} />
+      <RouteLabel title={'경기 기록'} route={'history'} />
     </Container>
   );
 };
