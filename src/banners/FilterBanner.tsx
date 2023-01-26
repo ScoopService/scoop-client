@@ -3,7 +3,7 @@ import React, {useState} from 'react';
 import {Dimensions, Text, TouchableOpacity, View} from 'react-native';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import FilterButton from './FilterButton';
+import FilterButton from '../components/FilterButton';
 
 const {width: SCREEN_WIDTH} = Dimensions.get('window');
 
