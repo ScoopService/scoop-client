@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import {View, Text, ScrollView} from 'react-native';
 import styled from 'styled-components/native';
-import FilterBanner from '../components/FilterBanner';
+import FilterBanner from '../banners/FilterBanner';
 import GroupCard from '../components/GroupCard';
 
 const Container = styled.View`

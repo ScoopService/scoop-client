@@ -15,7 +15,6 @@ const Wrapper = styled.TouchableOpacity`
 
 const FilterText = styled.Text`
   color: white;
-  //TODO : HEX 넣기
   font-size: 12px;
   margin: 9px 13px;
 `;
@@ -34,7 +33,8 @@ const FilterButton = (props: FilterProps) => {
   const [isOn, setIsOn] = useState(false);
 
   return isOn ? (
-    <Wrapper style={{backgroundColor : '#39CB50'}}
+    <Wrapper
+      style={{backgroundColor: '#39CB50'}}
       onPress={() => {
         // console.log("OnPress", isOn)
         setIsOn(current => !current);

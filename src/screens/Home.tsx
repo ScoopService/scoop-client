@@ -2,10 +2,11 @@ import React, {useEffect} from 'react';
 import {View, Text, ScrollView, StyleSheet} from 'react-native';
 import {styles} from '../theme/AppTheme';
 import styled from 'styled-components/native';
-import ProfileBanner from '../components/ProfileBanner';
-import DateBanner from '../components/DateBanner';
+import ProfileBanner from '../banners/ProfileBanner';
+import DateBanner from '../banners/DateBanner';
 import GroupCard from '../components/GroupCard';
 import LogoTopBar from '../components/LogoTopBar';
+import {HorizontalRule} from '../components/HorizontalRule';
 
 const Container = styled.View`
   flex: 1;
@@ -49,13 +50,7 @@ export const Home = () => {
           <GroupCard />
           {/*TODO : 유저 키 Props 전달하기 */}
         </MyGroupsCard>
-        <View
-          style={{
-            marginTop: 50,
-            borderBottomColor: '#EFEFEF',
-            borderBottomWidth: 1.5,
-          }}
-        />
+        <HorizontalRule />
         <SectionTitle>인기 모임</SectionTitle>
         <PopularGroupsCard>
           <GroupCard />
