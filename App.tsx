@@ -1,9 +1,7 @@
+import 'react-native-gesture-handler';
 import {NavigationContainer} from '@react-navigation/native';
 import React from 'react';
-import {
-  BottomTabsNavigator,
-  MaterialTabsNavigator,
-} from './src/navigator/BottomTabsNavigator';
+import {BottomTabsNavigator} from './src/navigator/BottomTabsNavigator';
 import {SafeAreaView, StatusBar} from 'react-native';
 
 const App = () => {
@@ -11,7 +9,6 @@ const App = () => {
     <SafeAreaView style={{flex: 1}}>
       <StatusBar backgroundColor={'white'} barStyle={'dark-content'} />
       <NavigationContainer>
-        {/*<MaterialTabsNavigator />*/}
         <BottomTabsNavigator />
       </NavigationContainer>
     </SafeAreaView>
