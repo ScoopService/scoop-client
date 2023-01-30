@@ -27,7 +27,7 @@ function HomeStackScreen() {
       />
       <HomeStack.Screen
         name="Notifications"
-        options={{headerShown: false}}
+        options={{headerShown: true}}
         component={Notification}
       />
     </HomeStack.Navigator>

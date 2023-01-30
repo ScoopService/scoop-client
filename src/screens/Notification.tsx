@@ -1,11 +1,10 @@
 import React, {useEffect, useState} from 'react';
-import {Dimensions, Text, } from 'react-native';
+import {Button, Dimensions, Text, TouchableOpacity} from 'react-native';
 import styled from 'styled-components/native';
-import { NavigationStackProp } from 'react-navigation-stack';
+import {StackNavigationProp} from '@react-navigation/stack';
 
 const {width: SCREEN_WIDTH} = Dimensions.get('window');
 const {height: SCREEN_HEIGHT} = Dimensions.get('window');
-
 
 const Container = styled.View`
   flex: 1;
@@ -13,12 +12,25 @@ const Container = styled.View`
   background-color: white;
 `;
 
-export const Notification = () => {
+type RootStackParamList = {
+  Home: undefined; // undefined because you aren't passing any params to the home screen
+  Notifications: undefined;
+};
+
+type HomeNavigationProp = StackNavigationProp<RootStackParamList, 'Home'>;
+
+type Props = {
+  navigation: HomeNavigationProp;
+};
+
+export const Notification = ({navigation}: Props) => {
   useEffect(() => {
     //console.log('Notification.tsx effect');
   }, []);
 
-  return <Container>
-    <Text>qwer</Text>
-  </Container>;
+  return (
+    <Container>
+      <Button title={'Go Back'} onPress={() => navigation.goBack()} />
+    </Container>
+  );
 };
