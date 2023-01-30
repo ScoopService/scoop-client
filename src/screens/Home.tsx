@@ -9,7 +9,6 @@ import {HorizontalRule} from '../components/HorizontalRule';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import {FloatingAction} from 'react-native-floating-action';
 import {StackNavigationProp} from '@react-navigation/stack';
-import {RootStackParamList} from '../navigator/BottomTabsNavigator';
 
 const {width: SCREEN_WIDTH} = Dimensions.get('window');
 const {height: SCREEN_HEIGHT} = Dimensions.get('window');
@@ -63,16 +62,18 @@ const actions = [
   },
 ];
 
-type ProfileScreenNavigationProp = StackNavigationProp<
-  RootStackParamList,
-  'Home'
->;
-
-type Props = {
-  navigation: ProfileScreenNavigationProp;
+type RootStackParamList = {
+  Home: undefined; // undefined because you aren't passing any params to the home screen
+  Notifications: undefined;
 };
 
-export const Home = ({navigation}:NavigationStackScreenProps) => {
+type HomeNavigationProp = StackNavigationProp<RootStackParamList, 'Home'>;
+
+type Props = {
+  navigation: HomeNavigationProp;
+};
+
+export const Home = ({navigation}: Props) => {
   // const [open, setOpen] = useState(false);
   useEffect(() => {
     //console.log('Home.tsx effect');
@@ -80,8 +81,7 @@ export const Home = ({navigation}:NavigationStackScreenProps) => {
 
   return (
     <Container>
-      {/*TODO : 상단바 스크롤 고정하기 */}
-      <LogoTopBar  navigation={navigation}/>
+      <LogoTopBar navigation={navigation} />
       <ScrollView>
         <ProfileBanner nickname="블루비" />
         {/*<DateBanner />*/}

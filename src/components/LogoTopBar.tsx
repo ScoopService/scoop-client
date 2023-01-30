@@ -10,7 +10,6 @@ import {
 import {Icon} from 'react-native-vector-icons/Icon';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import {StackNavigationProp} from '@react-navigation/stack';
-import {RootStackParamList} from '../navigator/BottomTabsNavigator';
 
 const {width: SCREEN_WIDTH} = Dimensions.get('window');
 
@@ -37,20 +36,25 @@ const IconContainer = styled.View`
   align-items: center;
 `;
 
-type ProfileScreenNavigationProp = StackNavigationProp<
+type RootStackParamList = {
+  Home: undefined; // undefined because you aren't passing any params to the home screen
+  Notifications: undefined;
+};
+
+type HomeNavigationProp = StackNavigationProp<
   RootStackParamList,
   'Home'
 >;
 
 type Props = {
-  navigation: ProfileScreenNavigationProp;
+  navigation: HomeNavigationProp;
 };
 
 const LogoTopBar = ({navigation}: Props) => {
   return (
     <Wrapper>
       <LogoImg source={require('../assets/images/Logo.png')} />
-      <TouchableOpacity onPress={() => navigation.navigate('Details')}>
+      <TouchableOpacity onPress={() => navigation.navigate('Notifications')}>
         <IconContainer>
           <Ionicons name={'notifications'} size={25} color={'black'} />
         </IconContainer>
