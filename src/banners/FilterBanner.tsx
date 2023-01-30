@@ -54,9 +54,16 @@ const FilterIcon = styled.TouchableOpacity`
   border: #dfdfdf;
 `;
 
+const IconContainer = styled.View`
+  height: 40px;
+  width: 40px;
+  //background-color: #80c76d;
+  justify-content: center;
+  align-items: center;
+`;
+
 const FilterBanner = () => {
   let location;
-
 
   return (
     <Wrapper>
@@ -65,7 +72,11 @@ const FilterBanner = () => {
           <LocationName>화양동{location}</LocationName>
           <MaterialIcons name={'arrow-forward-ios'} size={21} color={'black'} />
         </LocationContainer>
-        <Ionicons name={'search'} size={25} color={'black'} />
+        <TouchableOpacity>
+          <IconContainer>
+            <Ionicons name={'search'} size={25} color={'black'} />
+          </IconContainer>
+        </TouchableOpacity>
       </View>
       <FilterOptions>
         <FilterIcon>
