@@ -29,9 +29,9 @@ const LogoImg = styled.Image`
 `;
 
 const IconContainer = styled.View`
-  height: 40px;
-  width: 40px;
+  height: 30px;
   //background-color: #80c76d;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
 `;
@@ -39,12 +39,10 @@ const IconContainer = styled.View`
 type RootStackParamList = {
   Home: undefined; // undefined because you aren't passing any params to the home screen
   Notifications: undefined;
+  Search: undefined;
 };
 
-type HomeNavigationProp = StackNavigationProp<
-  RootStackParamList,
-  'Home'
->;
+type HomeNavigationProp = StackNavigationProp<RootStackParamList, 'Home'>;
 
 type Props = {
   navigation: HomeNavigationProp;
@@ -54,11 +52,19 @@ const LogoTopBar = ({navigation}: Props) => {
   return (
     <Wrapper>
       <LogoImg source={require('../assets/images/Logo.png')} />
-      <TouchableOpacity onPress={() => navigation.navigate('Notifications')}>
-        <IconContainer>
+      <IconContainer>
+        <TouchableOpacity
+          onPress={() => navigation.navigate('Search')}
+          hitSlop={{top: 8, bottom: 8, left: 8, right: 8}}
+          style={{marginRight: 15}}>
+          <Ionicons name={'search'} size={25} color={'black'} />
+        </TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => navigation.navigate('Notifications')}
+          hitSlop={{top: 8, bottom: 8, left: 8, right: 8}}>
           <Ionicons name={'notifications'} size={25} color={'black'} />
-        </IconContainer>
-      </TouchableOpacity>
+        </TouchableOpacity>
+      </IconContainer>
     </Wrapper>
   );
 };
