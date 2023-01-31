@@ -9,13 +9,17 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import Entypoicons from 'react-native-vector-icons/Entypo';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import {Notification} from '../screens/Notification';
+import {Search} from "../screens/Search";
 
 type RootStackParamList = {
   Home: undefined; // undefined because you aren't passing any params to the home screen
+  GroupSearch: undefined;
   Notifications: undefined;
+  Search: undefined;
 };
 
 const HomeStack = createStackNavigator<RootStackParamList>();
+const GroupSearchStack = createStackNavigator<RootStackParamList>();
 
 function HomeStackScreen() {
   return (
@@ -26,11 +30,38 @@ function HomeStackScreen() {
         component={Home}
       />
       <HomeStack.Screen
+        name="Search"
+        options={{headerShown: true}}
+        component={Search}
+      />
+      <HomeStack.Screen
         name="Notifications"
         options={{headerShown: true}}
         component={Notification}
       />
     </HomeStack.Navigator>
+  );
+}
+
+function GroupSearchStackScreen() {
+  return (
+    <GroupSearchStack.Navigator>
+      <GroupSearchStack.Screen
+        name="GroupSearch"
+        options={{headerShown: false}}
+        component={GroupSearch}
+      />
+      <GroupSearchStack.Screen
+        name="Search"
+        options={{headerShown: true}}
+        component={Search}
+      />
+      <GroupSearchStack.Screen
+        name="Notifications"
+        options={{headerShown: true}}
+        component={Notification}
+      />
+    </GroupSearchStack.Navigator>
   );
 }
 
@@ -44,7 +75,7 @@ const BottomTabs = () => {
           let iconName: string = 'add'!;
           if (route.name === 'HomeStack') {
             return <Entypoicons name={'home'} size={28} color={color} />;
-          } else if (route.name === 'GroupSearch') {
+          } else if (route.name === 'GroupSearchStack') {
             return <Ionicons name={'search'} size={28} color={color} />;
           } else if (route.name === 'GroupFeed') {
             return (
@@ -75,7 +106,7 @@ const BottomTabs = () => {
       <Tab.Screen
         name="GroupSearch"
         options={{title: '모임 찾기', headerShown: false}}
-        component={GroupSearch}
+        component={GroupSearchStackScreen}
       />
       <Tab.Screen
         name="GroupFeed"
@@ -92,5 +123,5 @@ const BottomTabs = () => {
 };
 
 export const BottomTabsNavigator = () => {
-  return <BottomTabs />;
+  return <BottomTabs/>;
 };

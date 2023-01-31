@@ -15,6 +15,7 @@ const Container = styled.View`
 type RootStackParamList = {
   Home: undefined; // undefined because you aren't passing any params to the home screen
   Notifications: undefined;
+  Search: undefined;
 };
 
 type HomeNavigationProp = StackNavigationProp<RootStackParamList, 'Home'>;
