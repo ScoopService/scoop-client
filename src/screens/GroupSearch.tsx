@@ -3,7 +3,7 @@ import {View, Text, ScrollView} from 'react-native';
 import styled from 'styled-components/native';
 import FilterBanner from '../banners/FilterBanner';
 import GroupCard from '../components/GroupCard';
-import {StackNavigationProp} from "@react-navigation/stack";
+import {StackNavigationProp} from '@react-navigation/stack';
 
 const Container = styled.View`
   flex: 1;
@@ -33,7 +33,7 @@ type RootStackParamList = {
 type GroupSearchNavigationProp = StackNavigationProp<
   RootStackParamList,
   'GroupSearch'
-  >;
+>;
 
 type Props = {
   navigation: GroupSearchNavigationProp;

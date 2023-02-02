@@ -1,9 +1,6 @@
-import React, { useCallback, useMemo, useRef } from 'react';
-import { View, Text, StyleSheet, Button } from 'react-native';
-import {
-  BottomSheetModal,
-  BottomSheetModalProvider,
-} from '@gorhom/bottom-sheet';
+import React, {useCallback, useMemo, useRef} from 'react';
+import {View, Text, StyleSheet, Button} from 'react-native';
+import {BottomSheetModal, BottomSheetModalProvider} from '@gorhom/bottom-sheet';
 
 export const GroupFeed = () => {
   // ref
@@ -33,8 +30,7 @@ export const GroupFeed = () => {
           ref={bottomSheetModalRef}
           index={1}
           snapPoints={snapPoints}
-          onChange={handleSheetChanges}
-        >
+          onChange={handleSheetChanges}>
           <View style={styles.contentContainer}>
             <Text>Awesome 🎉</Text>
           </View>
