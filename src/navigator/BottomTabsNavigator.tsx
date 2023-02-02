@@ -9,17 +9,29 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import Entypoicons from 'react-native-vector-icons/Entypo';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import {Notification} from '../screens/Notification';
-import {Search} from "../screens/Search";
+import {Search} from '../screens/Search';
+import {LikedGroups} from '../screens/LikedGroups';
+import {History} from '../screens/History';
+import {ProfileSettings} from '../screens/ProfileSettings';
+import {MyActiveGroups} from '../screens/MyActiveGroups';
+import {ManageGroups} from '../screens/ManageGroups';
 
 type RootStackParamList = {
   Home: undefined; // undefined because you aren't passing any params to the home screen
   GroupSearch: undefined;
   Notifications: undefined;
   Search: undefined;
+  MyPage: undefined;
+  ProfileSettings: undefined;
+  MyActiveGroups: undefined;
+  ManageGroups: undefined;
+  LikedGroups: undefined;
+  History: undefined;
 };
 
 const HomeStack = createStackNavigator<RootStackParamList>();
 const GroupSearchStack = createStackNavigator<RootStackParamList>();
+const MyPageStack = createStackNavigator<RootStackParamList>();
 
 function HomeStackScreen() {
   return (
@@ -65,6 +77,43 @@ function GroupSearchStackScreen() {
   );
 }
 
+function MyPageStackScreen() {
+  return (
+    <MyPageStack.Navigator>
+      <MyPageStack.Screen
+        name="MyPage"
+        options={{headerShown: false}}
+        component={MyPage}
+      />
+      <MyPageStack.Screen
+        name="ProfileSettings"
+        options={{headerShown: true}}
+        component={ProfileSettings}
+      />
+      <MyPageStack.Screen
+        name="ManageGroups"
+        options={{headerShown: true}}
+        component={ManageGroups}
+      />
+      <MyPageStack.Screen
+        name="MyActiveGroups"
+        options={{headerShown: true}}
+        component={MyActiveGroups}
+      />
+      <MyPageStack.Screen
+        name="LikedGroups"
+        options={{headerShown: true}}
+        component={LikedGroups}
+      />
+      <MyPageStack.Screen
+        name="History"
+        options={{headerShown: true}}
+        component={History}
+      />
+    </MyPageStack.Navigator>
+  );
+}
+
 const Tab = createBottomTabNavigator();
 
 const BottomTabs = () => {
@@ -85,7 +134,7 @@ const BottomTabs = () => {
                 color={color}
               />
             );
-          } else if (route.name === 'MyPage') {
+          } else if (route.name === 'MyPageStack') {
             iconName = focused ? 'person' : 'person-outline';
             return <Ionicons name={iconName} size={28} color={color} />;
           }
@@ -104,7 +153,7 @@ const BottomTabs = () => {
         component={HomeStackScreen}
       />
       <Tab.Screen
-        name="GroupSearch"
+        name="GroupSearchStack"
         options={{title: '모임 찾기', headerShown: false}}
         component={GroupSearchStackScreen}
       />
@@ -114,14 +163,14 @@ const BottomTabs = () => {
         component={GroupFeed}
       />
       <Tab.Screen
-        name="MyPage"
+        name="MyPageStack"
         options={{title: '마이페이지', headerShown: false}}
-        component={MyPage}
+        component={MyPageStackScreen}
       />
     </Tab.Navigator>
   );
 };
 
 export const BottomTabsNavigator = () => {
-  return <BottomTabs/>;
+  return <BottomTabs />;
 };
