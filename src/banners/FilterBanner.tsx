@@ -4,6 +4,7 @@ import {Dimensions, Text, TouchableOpacity, View} from 'react-native';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import FilterButton from '../components/FilterButton';
+import {StackNavigationProp} from '@react-navigation/stack';
 
 const {width: SCREEN_WIDTH} = Dimensions.get('window');
 
@@ -22,7 +23,7 @@ const LocationContainer = styled.TouchableOpacity`
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  margin-right: ${SCREEN_WIDTH / 2}px;
+  margin-right: ${SCREEN_WIDTH / 2.1}px;
 `;
 
 const LocationName = styled.Text`
@@ -55,14 +56,29 @@ const FilterIcon = styled.TouchableOpacity`
 `;
 
 const IconContainer = styled.View`
-  height: 40px;
-  width: 40px;
+  height: 30px;
   //background-color: #80c76d;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
 `;
 
-const FilterBanner = () => {
+type RootStackParamList = {
+  GroupSearch: undefined; // undefined because you aren't passing any params to the home screen
+  Notifications: undefined;
+  Search: undefined;
+};
+
+type GroupSearchNavigationProp = StackNavigationProp<
+  RootStackParamList,
+  'GroupSearch'
+>;
+
+type Props = {
+  navigation: GroupSearchNavigationProp;
+};
+
+const FilterBanner = ({navigation}: Props) => {
   let location;
 
   return (
@@ -72,11 +88,19 @@ const FilterBanner = () => {
           <LocationName>화양동{location}</LocationName>
           <MaterialIcons name={'arrow-forward-ios'} size={21} color={'black'} />
         </LocationContainer>
-        <TouchableOpacity>
-          <IconContainer>
+        <IconContainer>
+          <TouchableOpacity
+            onPress={() => navigation.navigate('Search')}
+            hitSlop={{top: 8, bottom: 8, left: 8, right: 8}}
+            style={{marginRight: 15}}>
             <Ionicons name={'search'} size={25} color={'black'} />
-          </IconContainer>
-        </TouchableOpacity>
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => navigation.navigate('Notifications')}
+            hitSlop={{top: 8, bottom: 8, left: 8, right: 8}}>
+            <Ionicons name={'notifications'} size={25} color={'black'} />
+          </TouchableOpacity>
+        </IconContainer>
       </View>
       <FilterOptions>
         <FilterIcon>

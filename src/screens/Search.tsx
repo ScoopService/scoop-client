@@ -24,7 +24,7 @@ type Props = {
   navigation: HomeNavigationProp;
 };
 
-export const Notification = ({navigation}: Props) => {
+export const Search = ({navigation}: Props) => {
   useEffect(() => {
     //console.log('Notification.tsx effect');
   }, []);

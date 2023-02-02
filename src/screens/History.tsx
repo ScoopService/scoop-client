@@ -13,18 +13,22 @@ const Container = styled.View`
 `;
 
 type RootStackParamList = {
-  Home: undefined; // undefined because you aren't passing any params to the home screen
-  Notifications: undefined;
-  Search: undefined;
+  MyPage: undefined; // undefined because you aren't passing any params to the home screen
+  ProfileSettings: undefined;
+  ManageGroups: undefined;
+  MyActiveGroups: undefined;
+  LikedGroups: undefined;
+  History: undefined;
 };
 
-type HomeNavigationProp = StackNavigationProp<RootStackParamList, 'Home'>;
+type MyPageNavigationProp = StackNavigationProp<RootStackParamList, 'MyPage'>;
 
 type Props = {
-  navigation: HomeNavigationProp;
+  navigation: MyPageNavigationProp;
 };
 
-export const Notification = ({navigation}: Props) => {
+
+export const History = ({navigation}: Props) => {
   useEffect(() => {
     //console.log('Notification.tsx effect');
   }, []);
