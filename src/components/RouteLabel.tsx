@@ -1,7 +1,8 @@
 import styled from 'styled-components/native';
 import React from 'react';
 import {Dimensions, Text, TouchableOpacity} from 'react-native';
-import MaterialIcons from "react-native-vector-icons/MaterialIcons";
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import {StackNavigationProp} from '@react-navigation/stack';
 
 const {width: SCREEN_WIDTH} = Dimensions.get('window');
 const {height: SCREEN_HEIGHT} = Dimensions.get('window');
@@ -25,19 +26,68 @@ const LabelText = styled.Text`
   font-size: 16px;
 `;
 
-interface RouteLabelProps {
+type RootStackParamList = {
+  MyPage: undefined; // undefined because you aren't passing any params to the home screen
+  ProfileSettings: undefined;
+  ManageGroups: undefined;
+  MyActiveGroups: undefined;
+  LikedGroups: undefined;
+  History: undefined;
+};
+
+type MyPageNavigationProp = StackNavigationProp<RootStackParamList, 'MyPage'>;
+
+type RouteLabelProps = {
   title: string;
   route: string;
-}
+  navigation: MyPageNavigationProp;
+};
 
 export const RouteLabel = (props: RouteLabelProps) => {
+  let pages = [
+    'MyPage',
+    'ManageGroups',
+    'MyActiveGroups',
+    'LikedGroups',
+    'History',
+  ];
+
   return (
-    <TouchableOpacity>
+    <TouchableOpacity
+      onPress={() => {
+        // if (
+        //   props.route === 'MyPage' ||
+        //   'ManageGroups' ||
+        //   'MyActiveGroups' ||
+        //   'LikedGroups' ||
+        //   'History'
+        // ) {
+        //   props.navigation.navigate(props.route);
+        // } else {
+        //   console.log('Error while navigating');
+        // }
+        // Error
+
+        if (props.route === 'MyPage') {
+          props.navigation.navigate(props.route);
+        } else if (props.route === 'ManageGroups') {
+          props.navigation.navigate(props.route);
+        } else if (props.route === 'MyActiveGroups') {
+          props.navigation.navigate(props.route);
+        } else if (props.route === 'LikedGroups') {
+          props.navigation.navigate(props.route);
+        } else if (props.route === 'History') {
+          props.navigation.navigate(props.route);
+        } else {
+          props.navigation.navigate('MyPage');
+          console.log('Error while navigating');
+        }
+      }}>
       <Wrapper>
-        <LabelText style ={{marginLeft: 28}}>{props.title}</LabelText>
+        <LabelText style={{marginLeft: 28}}>{props.title}</LabelText>
         <MaterialIcons
           name={'arrow-forward-ios'}
-          style ={{marginRight: 27}}
+          style={{marginRight: 27}}
           size={25}
           color={'#C1CCDA'}
         />

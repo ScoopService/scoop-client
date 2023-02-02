@@ -17,7 +17,8 @@ import {RatingBox} from '../components/RatingBox';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import {HorizontalRule} from '../components/HorizontalRule';
-import {RouteLabel} from "../components/RouteLabel";
+import {RouteLabel} from '../components/RouteLabel';
+import {StackNavigationProp} from '@react-navigation/stack';
 
 const {width: SCREEN_WIDTH} = Dimensions.get('window');
 const {height: SCREEN_HEIGHT} = Dimensions.get('window');
@@ -97,11 +98,26 @@ const NicknameText = styled.Text`
   margin-right: 5px;
 `;
 
+type RootStackParamList = {
+  MyPage: undefined; // undefined because you aren't passing any params to the home screen
+  ProfileSettings: undefined;
+  ManageGroups: undefined;
+  MyActiveGroups: undefined;
+  LikedGroups: undefined;
+  History: undefined;
+};
+
+type MyPageNavigationProp = StackNavigationProp<RootStackParamList, 'MyPage'>;
+
+type Props = {
+  navigation: MyPageNavigationProp;
+};
+
 const Nickname = (props: {name: string}) => {
   return <NicknameText>{props.name}</NicknameText>;
 };
 
-export const MyPage = () => {
+export const MyPage = ({navigation}: Props) => {
   useEffect(() => {
     //console.log('MyPage.tsx effect');
   }, []);
@@ -112,7 +128,10 @@ export const MyPage = () => {
         <MyPageTitle>마이페이지</MyPageTitle>
       </MyPageTitleView>
       <ProfileContainer>
-        <MyProfileBanner>
+        <MyProfileBanner
+          onPress={() => {
+            navigation.navigate('ProfileSettings');
+          }}>
           <ProfilePic source={require('../assets/images/Ellipse93.png')} />
           <ProfileInfo>
             <NicknameContainer>
@@ -133,10 +152,26 @@ export const MyPage = () => {
       </ProfileContainer>
       <HorizontalRule />
 
-      <RouteLabel title={'모임관리'} route={'manageGroups'} />
-      <RouteLabel title={'참여 중인 모임'} route={'activeGroups'} />
-      <RouteLabel title={'찜한 모임'} route={'starredGroups'} />
-      <RouteLabel title={'경기 기록'} route={'history'} />
+      <RouteLabel
+        title={'모임관리'}
+        navigation={navigation}
+        route={'ManageGroups'}
+      />
+      <RouteLabel
+        title={'참여 중인 모임'}
+        navigation={navigation}
+        route={'MyActiveGroups'}
+      />
+      <RouteLabel
+        title={'찜한 모임'}
+        navigation={navigation}
+        route={'LikedGroups'}
+      />
+      <RouteLabel
+        title={'경기 기록'}
+        navigation={navigation}
+        route={'History'}
+      />
     </Container>
   );
 };
