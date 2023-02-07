@@ -47,7 +47,7 @@ const GreetingsText = styled.Text`
   margin-top: 3px;
 `;
 
-//TODO : 폰트 설정하기
+//TODO: 폰트 설정하기
 
 interface Props {
   nickname: string;
