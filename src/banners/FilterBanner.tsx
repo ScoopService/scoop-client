@@ -1,10 +1,11 @@
 import styled from 'styled-components/native';
-import React, {useState} from 'react';
+import React, {useCallback, useMemo, useRef, useState} from 'react';
 import {Dimensions, Text, TouchableOpacity, View} from 'react-native';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import FilterButton from '../components/FilterButton';
 import {StackNavigationProp} from '@react-navigation/stack';
+import {BottomSheetModal} from '@gorhom/bottom-sheet';
 
 const {width: SCREEN_WIDTH} = Dimensions.get('window');
 
@@ -76,15 +77,21 @@ type GroupSearchNavigationProp = StackNavigationProp<
 
 type Props = {
   navigation: GroupSearchNavigationProp;
+  filterStateHandler: Function;
+  locationStateHandler: Function;
 };
 
-const FilterBanner = ({navigation}: Props) => {
+const FilterBanner = ({
+  navigation,
+  filterStateHandler,
+  locationStateHandler,
+}: Props) => {
   let location;
 
   return (
     <Wrapper>
       <View style={{flexDirection: 'row'}}>
-        <LocationContainer>
+        <LocationContainer onPress={() => locationStateHandler()}>
           <LocationName>화양동{location}</LocationName>
           <MaterialIcons name={'arrow-forward-ios'} size={21} color={'black'} />
         </LocationContainer>
@@ -103,7 +110,7 @@ const FilterBanner = ({navigation}: Props) => {
         </IconContainer>
       </View>
       <FilterOptions>
-        <FilterIcon>
+        <FilterIcon onPress={() => filterStateHandler()}>
           <Ionicons
             name={'options-outline'}
             size={18}

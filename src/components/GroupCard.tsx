@@ -35,7 +35,7 @@ const Container = styled.View`
   justify-content: center;
   align-items: center;
 `;
-//TODO : 그림자 추가하기
+//TODO: 그림자 추가하기
 
 const GroupInfo = styled.View`
   width: 90%;
@@ -49,7 +49,7 @@ const GroupTitle = styled.Text`
   font-size: 14px;
   //background-color: #4a9c35;
 `;
-//TODO : 글자 수 제한하기 (넘어가면 안되서)
+//TODO: 글자 수 제한하기 (넘어가면 안되서)
 
 const GroupDescription = styled.Text`
   color: #7c7c7c;
@@ -97,7 +97,7 @@ const GroupCard = () => {
                 <GroupDetail>2/6</GroupDetail>
               </View>
             </DetailContainer>
-            {/*TODO : <ExerciseTags>, <Attendees> */}
+            {/*TODO: <ExerciseTags>, <Attendees> */}
           </GroupInfo>
         </Container>
       </Wrapper>

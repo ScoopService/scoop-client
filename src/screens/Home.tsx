@@ -45,7 +45,7 @@ const FABContainer = styled.View`
 `;
 
 const actions = [
-  //TODO : 기능이 하나인 경우 빼기
+  //TODO: 기능이 하나인 경우 빼기
   {
     text: '글쓰기',
     icon: require('../assets/images/basketball.png'),
@@ -89,7 +89,7 @@ export const Home = ({navigation}: Props) => {
         <SectionTitle>다음 모임</SectionTitle>
         <MyGroupsCard>
           <GroupCard />
-          {/*TODO : 유저 키 Props 전달하기 */}
+          {/*TODO: 유저 키 Props 전달하기 */}
         </MyGroupsCard>
         <HorizontalRule />
         <SectionTitle>인기 모임</SectionTitle>
@@ -105,7 +105,7 @@ export const Home = ({navigation}: Props) => {
         <FloatingAction
           actions={actions}
           color={'#39CB51'}
-          distanceToEdge={{vertical: 0, horizontal: 0}} //TODO : vertical pxs
+          distanceToEdge={{vertical: 0, horizontal: 0}} //TODO: vertical pxs
           visible={true}
           // overlayColor={'rgba(127, 17, 224, 1)'}
           position={'right'}
