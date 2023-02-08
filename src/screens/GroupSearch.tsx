@@ -12,6 +12,7 @@ import {
 import {GestureHandlerRootView} from 'react-native-gesture-handler';
 import {FilterBottomSheet} from '../sheets/FilterBottomSheet';
 import {LocationBottomSheet} from '../sheets/LocationBottomSheet';
+import BottomSheetBackground from '@gorhom/bottom-sheet/lib/typescript/components/bottomSheetBackground';
 
 const {width: SCREEN_WIDTH} = Dimensions.get('window');
 const {height: SCREEN_HEIGHT} = Dimensions.get('window');
@@ -167,7 +168,7 @@ export const GroupSearch = ({navigation}: Props) => {
         {/*TODO: 필터 불러오기*/}
         <BottomSheetModal
           ref={FilterBottomSheetRef}
-          index={1}
+          index={2}
           snapPoints={filterSnapPoints}
           onChange={handleFilterSheetChanges}
           style={{
@@ -177,6 +178,8 @@ export const GroupSearch = ({navigation}: Props) => {
             shadowOpacity: 10,
             shadowRadius: 0,
             elevation: 20,
+            borderRadius: 14,
+            overflow: 'hidden',
           }}>
           <FilterBottomSheet
             handleCloseModalPress={handlePressCloseFilterModal}
@@ -185,7 +188,7 @@ export const GroupSearch = ({navigation}: Props) => {
 
         <BottomSheetModal
           ref={LocationBottomSheetRef}
-          index={1}
+          index={2}
           snapPoints={locationSnapPoints}
           onChange={handleLocationSheetChanges}
           style={{
@@ -195,6 +198,8 @@ export const GroupSearch = ({navigation}: Props) => {
             shadowOpacity: 10,
             shadowRadius: 0,
             elevation: 20,
+            borderRadius: 16,
+            overflow: 'hidden',
           }}>
           <LocationBottomSheet
             handleCloseModalPress={handlePressCloseLocationModal}

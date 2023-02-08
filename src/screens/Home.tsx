@@ -9,6 +9,7 @@ import {HorizontalRule} from '../components/HorizontalRule';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import {FloatingAction} from 'react-native-floating-action';
 import {StackNavigationProp} from '@react-navigation/stack';
+import GroupCarousel from '../carousel/GroupCarousel';
 
 const {width: SCREEN_WIDTH} = Dimensions.get('window');
 const {height: SCREEN_HEIGHT} = Dimensions.get('window');
@@ -26,7 +27,7 @@ const SectionTitle = styled.Text`
   font-weight: 700;
 `;
 
-const MyGroupsCard = styled.View`
+const UpcomingGroups = styled.View`
   //background-color: white;
   justify-content: center;
   align-items: center;
@@ -87,10 +88,10 @@ export const Home = ({navigation}: Props) => {
         <ProfileBanner nickname="블루비" />
         {/*<DateBanner />*/}
         <SectionTitle>다음 모임</SectionTitle>
-        <MyGroupsCard>
-          <GroupCard />
-          {/*TODO: 유저 키 Props 전달하기 */}
-        </MyGroupsCard>
+        {/*<UpcomingGroups>*/}
+        <GroupCarousel />
+        {/*TODO: 유저 키 Props 전달하기 */}
+        {/*</UpcomingGroups>*/}
         <HorizontalRule />
         <SectionTitle>인기 모임</SectionTitle>
         <PopularGroupsCard>
