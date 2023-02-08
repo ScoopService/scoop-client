@@ -51,7 +51,10 @@ type Props = {
 const LogoTopBar = ({navigation}: Props) => {
   return (
     <Wrapper>
-      <LogoImg source={require('../assets/images/Logo.png')} />
+      <LogoImg
+        source={require('../assets/images/Logo.png')}
+        style={{width: 102, resizeMode:'contain'}}
+      />
       <IconContainer>
         <TouchableOpacity
           onPress={() => navigation.navigate('Search')}
