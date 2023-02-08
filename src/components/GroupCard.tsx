@@ -99,11 +99,12 @@ const GroupCard = () => {
             {/*<GroupDescription>우리 모두 강백호가 되어보자</GroupDescription>*/}
 
             <DetailContainer>
-              <View style={{flexDirection: 'row', marginTop: 2}}>
+              <View style={{flexDirection: 'row', marginTop: 2, backgroundColor:'white'}}>
                 <Ionicons name={'location-sharp'} size={14} color={'#39CB51'} />
                 <GroupDetail>광진구</GroupDetail>
                 <FeatherIcons name={'calendar'} size={14} color={'#39CB51'} />
                 <GroupDetail>11월 17일 오후 7:00</GroupDetail>
+                {/*TODO: 줄 안맞는거 고치기 */}
               </View>
               {/*<View style={{flexDirection: 'row', marginTop: 2}}>*/}
               {/*  <FeatherIcons name={'calendar'} size={12} color={'#39CB51'} />*/}
