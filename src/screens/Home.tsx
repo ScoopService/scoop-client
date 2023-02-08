@@ -23,6 +23,7 @@ const Container = styled.View`
 const SectionTitle = styled.Text`
   margin-top: 30px;
   margin-left: 20px;
+  margin-bottom: 5px;
   font-size: 18px;
   font-weight: 700;
 `;

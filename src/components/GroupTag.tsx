@@ -8,7 +8,7 @@ const Wrapper = styled.View`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-right: 8px;
+  margin-right: 6px;
   border-radius: 10px;
   border: #e6e6e6;
 `;
@@ -16,7 +16,7 @@ const Wrapper = styled.View`
 const FilterText = styled.Text`
   color: #808080;
   font-size: 8px;
-  margin: 2px 7px;
+  margin: 3px 7px;
 `;
 
 interface FilterProps {
