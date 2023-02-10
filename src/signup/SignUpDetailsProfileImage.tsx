@@ -252,7 +252,7 @@ export const SignUpDetailsProfileImage = ({navigation}: Props) => {
             </Pressable>
             <Pressable
               onPress={() => {
-                console.log('go!');
+                // console.log('go!');
               }}
               style={{flexDirection: 'row', height: 48, alignItems: 'center'}}>
               <Ionicons
