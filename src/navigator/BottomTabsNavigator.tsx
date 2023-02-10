@@ -21,10 +21,17 @@ import {SignUpDetailsAgreement} from '../signup/SignUpDetailsAgreement';
 import {SignUpDetailsName} from '../signup/SignUpDetailsName';
 import {SignUpDetailsNickname} from '../signup/SignUpDetailsNickname';
 import {SignUpDetailsProfileImage} from '../signup/SignUpDetailsProfileImage';
-import {SignUpDetailsLocation} from "../signup/SignUpDetailsLocation";
-import {SignUpDetailsSports} from "../signup/SignUpDetailsSports";
-import {SignUpDetailsKeyword} from "../signup/SignUpDetailsKeyword";
-import {SignUpDetailsDone} from "../signup/SignUpDetailsDone";
+import {SignUpDetailsLocation} from '../signup/SignUpDetailsLocation';
+import {SignUpDetailsSports} from '../signup/SignUpDetailsSports';
+import {SignUpDetailsKeyword} from '../signup/SignUpDetailsKeyword';
+import {SignUpDetailsDone} from '../signup/SignUpDetailsDone';
+import {CreateMeetingName} from '../meetings/CreateMeetingName';
+import {CreateMeetingKeyword} from '../meetings/CreateMeetingKeyword';
+import {CreateMeetingType} from '../meetings/CreateMeetingType';
+import {CreateMeetingDescription} from '../meetings/CreateMeetingDescription';
+import {CreateMeetingPlace} from '../meetings/CreateMeetingPlace';
+import {CreateMeetingCount} from '../meetings/CreateMeetingCount';
+import {CreateMeetingDate} from '../meetings/CreateMeetingDate';
 
 type RootStackParamList = {
   Home: undefined; // undefined because you aren't passing any params to the home screen
@@ -37,6 +44,13 @@ type RootStackParamList = {
   ManageGroups: undefined;
   LikedGroups: undefined;
   History: undefined;
+  CreateMeetingName: undefined;
+  CreateMeetingCount: undefined;
+  CreateMeetingType: undefined;
+  CreateMeetingKeyword: undefined;
+  CreateMeetingDescription: undefined;
+  CreateMeetingPlace: undefined;
+  CreateMeetingDate: undefined;
 };
 
 type AppStackParamList = {
@@ -76,6 +90,41 @@ function HomeStackScreen() {
         name="Notifications"
         options={{headerShown: true}}
         component={Notification}
+      />
+      <HomeStack.Screen
+        name="CreateMeetingName"
+        options={{headerShown: true}}
+        component={CreateMeetingName}
+      />
+      <HomeStack.Screen
+        name="CreateMeetingCount"
+        options={{headerShown: true}}
+        component={CreateMeetingCount}
+      />
+      <HomeStack.Screen
+        name="CreateMeetingType"
+        options={{headerShown: true}}
+        component={CreateMeetingType}
+      />
+      <HomeStack.Screen
+        name="CreateMeetingKeyword"
+        options={{headerShown: true}}
+        component={CreateMeetingKeyword}
+      />
+      <HomeStack.Screen
+        name="CreateMeetingDescription"
+        options={{headerShown: true}}
+        component={CreateMeetingDescription}
+      />
+      <HomeStack.Screen
+        name="CreateMeetingPlace"
+        options={{headerShown: true}}
+        component={CreateMeetingPlace}
+      />
+      <HomeStack.Screen
+        name="CreateMeetingDate"
+        options={{headerShown: true}}
+        component={CreateMeetingDate}
       />
     </HomeStack.Navigator>
   );
