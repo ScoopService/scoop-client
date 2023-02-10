@@ -17,6 +17,7 @@ const FilterText = styled.Text`
   color: #808080;
   font-size: 8px;
   margin: 3px 7px;
+  font-weight: 500;
 `;
 
 interface FilterProps {

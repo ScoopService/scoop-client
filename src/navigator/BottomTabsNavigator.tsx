@@ -15,6 +15,16 @@ import {History} from '../screens/History';
 import {ProfileSettings} from '../screens/ProfileSettings';
 import {MyActiveGroups} from '../screens/MyActiveGroups';
 import {ManageGroups} from '../screens/ManageGroups';
+import {SignUp} from '../signup/SignUp';
+import {SignUpDetails} from '../signup/SignUpDetails';
+import {SignUpDetailsAgreement} from '../signup/SignUpDetailsAgreement';
+import {SignUpDetailsName} from '../signup/SignUpDetailsName';
+import {SignUpDetailsNickname} from '../signup/SignUpDetailsNickname';
+import {SignUpDetailsProfileImage} from '../signup/SignUpDetailsProfileImage';
+import {SignUpDetailsLocation} from "../signup/SignUpDetailsLocation";
+import {SignUpDetailsSports} from "../signup/SignUpDetailsSports";
+import {SignUpDetailsKeyword} from "../signup/SignUpDetailsKeyword";
+import {SignUpDetailsDone} from "../signup/SignUpDetailsDone";
 
 type RootStackParamList = {
   Home: undefined; // undefined because you aren't passing any params to the home screen
@@ -29,6 +39,22 @@ type RootStackParamList = {
   History: undefined;
 };
 
+type AppStackParamList = {
+  HomeBottomTabs: undefined; // undefined because you aren't passing any params to the home screen
+  SignUp: undefined;
+  SignUpDetails: undefined;
+  SignUpDetailsAgreement: undefined;
+  SignUpDetailsName: undefined;
+  SignUpDetailsNickname: undefined;
+  SignUpDetailsProfileImage: undefined;
+  SignUpDetailsLocation: undefined;
+  SignUpDetailsSports: undefined;
+  SignUpDetailsLevel: undefined;
+  SignUpDetailsKeyword: undefined;
+  SignUpDetailsDone: undefined;
+};
+
+const RootStack = createStackNavigator<AppStackParamList>();
 const HomeStack = createStackNavigator<RootStackParamList>();
 const GroupSearchStack = createStackNavigator<RootStackParamList>();
 const MyPageStack = createStackNavigator<RootStackParamList>();
@@ -116,7 +142,7 @@ function MyPageStackScreen() {
 
 const Tab = createBottomTabNavigator();
 
-const BottomTabs = () => {
+const HomeBottomTabs = () => {
   return (
     <Tab.Navigator
       screenOptions={({route}) => ({
@@ -159,7 +185,7 @@ const BottomTabs = () => {
       />
       <Tab.Screen
         name="GroupFeed"
-        options={{title: '모임 보기', headerShown: false}}
+        options={{title: '일정 보기', headerShown: false}}
         component={GroupFeed}
       />
       <Tab.Screen
@@ -168,6 +194,68 @@ const BottomTabs = () => {
         component={MyPageStackScreen}
       />
     </Tab.Navigator>
+  );
+};
+
+const BottomTabs = () => {
+  return (
+    <RootStack.Navigator>
+      <RootStack.Screen
+        name="SignUp"
+        component={SignUp}
+        options={{headerShown: false}}
+      />
+      <RootStack.Screen
+        name="HomeBottomTabs"
+        component={HomeBottomTabs}
+        options={{headerShown: false}}
+      />
+      <RootStack.Screen
+        name={'SignUpDetails'}
+        component={SignUpDetails}
+        options={{headerShown: false}}
+      />
+      <RootStack.Screen
+        name={'SignUpDetailsAgreement'}
+        component={SignUpDetailsAgreement}
+        options={{headerShown: false}}
+      />
+      <RootStack.Screen
+        name={'SignUpDetailsName'}
+        component={SignUpDetailsName}
+        options={{headerShown: false}}
+      />
+      <RootStack.Screen
+        name={'SignUpDetailsNickname'}
+        component={SignUpDetailsNickname}
+        options={{headerShown: false}}
+      />
+      <RootStack.Screen
+        name={'SignUpDetailsProfileImage'}
+        component={SignUpDetailsProfileImage}
+        options={{headerShown: false}}
+      />
+      <RootStack.Screen
+        name={'SignUpDetailsLocation'}
+        component={SignUpDetailsLocation}
+        options={{headerShown: false}}
+      />
+      <RootStack.Screen
+        name={'SignUpDetailsSports'}
+        component={SignUpDetailsSports}
+        options={{headerShown: false}}
+      />
+      <RootStack.Screen
+        name={'SignUpDetailsKeyword'}
+        component={SignUpDetailsKeyword}
+        options={{headerShown: false}}
+      />
+      <RootStack.Screen
+        name={'SignUpDetailsDone'}
+        component={SignUpDetailsDone}
+        options={{headerShown: false}}
+      />
+    </RootStack.Navigator>
   );
 };
 

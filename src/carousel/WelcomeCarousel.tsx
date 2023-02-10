@@ -2,8 +2,8 @@ import React from 'react';
 import {Dimensions, Text, View} from 'react-native';
 import Carousel from 'pinar';
 import GroupCard from '../components/GroupCard';
-import styled from "styled-components/native";
-import {Tutorial, TutorialSecond, TutorialThird} from "./Tutorial";
+import styled from 'styled-components/native';
+import {Tutorial, TutorialSecond, TutorialThird} from './Tutorial';
 
 const {width: SCREEN_WIDTH} = Dimensions.get('window');
 
@@ -13,7 +13,7 @@ const PopularGroupsCard = styled.View`
   align-items: center;
 `;
 
-const GroupCarousel = () => {
+const WelcomeCarousel = () => {
   return (
     <Carousel
       loop={false}
@@ -21,22 +21,24 @@ const GroupCarousel = () => {
       showsControls={false}
       autoplay={false}
       width={SCREEN_WIDTH}
-      height={410}
+      height={430}
       mergeStyles={true}
+      dotsContainerStyle={{}}
       dotStyle={{
         backgroundColor: '#d9d9d9',
         marginLeft: 10,
-        width: 6,
-        height: 6,
+        width: 10,
+        height: 10,
+        borderRadius: 10
       }}
       activeDotStyle={{
-        backgroundColor: '#39CB51',
+        backgroundColor: '#2C803A',
         marginLeft: 10,
-        width: 6,
-        height: 6,
+        width: 10,
+        height: 10,
+        borderRadius: 10
       }}
-      style={{marginBottom: -50}}
-    >
+      style={{marginBottom: -50}}>
       <Tutorial />
       <TutorialSecond />
       <TutorialThird />
@@ -45,4 +47,4 @@ const GroupCarousel = () => {
 };
 
 
-export default GroupCarousel;
+export default WelcomeCarousel;

@@ -1,5 +1,12 @@
 import React, {useEffect, useState} from 'react';
-import {View, Text, ScrollView, StyleSheet, Dimensions, Image} from 'react-native';
+import {
+  View,
+  Text,
+  ScrollView,
+  StyleSheet,
+  Dimensions,
+  Image,
+} from 'react-native';
 import styled from 'styled-components/native';
 import ProfileBanner from '../banners/ProfileBanner';
 import DateBanner from '../banners/DateBanner';
@@ -70,7 +77,6 @@ const LogoText = styled.Text`
   font-size: 20px;
 `;
 
-
 type RootStackParamList = {
   Home: undefined; // undefined because you aren't passing any params to the home screen
   Notifications: undefined;
@@ -92,7 +98,7 @@ export const Tutorial = () => {
   return (
     <Container>
       <LogoContainer>
-        <LogoImg source={require('../assets/images/Group5899.png')}/>
+        <LogoImg source={require('../assets/images/Group5899.png')} />
       </LogoContainer>
       <TextContainer>
         <LogoText>친구가 없어서 운동을 못한다고?</LogoText>
@@ -111,7 +117,7 @@ export const TutorialSecond = () => {
   return (
     <Container>
       <LogoContainer>
-        <LogoImgSecond source={require('../assets/images/Group5898.png')}/>
+        <LogoImgSecond source={require('../assets/images/Group5898.png')} />
       </LogoContainer>
       <TextContainer>
         <LogoText>내 주변에 같이 운동하고 싶은</LogoText>
@@ -119,7 +125,7 @@ export const TutorialSecond = () => {
       </TextContainer>
     </Container>
   );
-}
+};
 
 export const TutorialThird = () => {
   // const [open, setOpen] = useState(false);
@@ -130,15 +136,15 @@ export const TutorialThird = () => {
   return (
     <Container>
       <LogoContainer>
-        <LogoImgThird source={require('../assets/images/Group5903.png')}/>
+        <LogoImgThird source={require('../assets/images/Group5903.png')} />
       </LogoContainer>
       <TextContainer>
         <LogoText>혼자 운동하는건 이제 안녕!</LogoText>
-        <LogoText style={{fontWeight:'600'}}>WORK OUT</LogoText>
+        <LogoText style={{fontWeight: '600'}}>WORK OUT</LogoText>
       </TextContainer>
     </Container>
   );
-}
+};
 
 export const TutorialFourth = () => {
   // const [open, setOpen] = useState(false);
@@ -149,16 +155,19 @@ export const TutorialFourth = () => {
   return (
     <Container>
       <LogoContainer>
-        <LogoImgFourth source={require('../assets/images/Ellipse202.png')}/>
+        <LogoImgFourth source={require('../assets/images/Ellipse202.png')} />
       </LogoContainer>
       <TextContainer>
         <LogoText></LogoText>
-        <LogoText style={{fontWeight:'600'}}>주변에 같이 운동</LogoText>
-        <LogoText style={{fontWeight:'600'}}>친구들을 함께 찾아봐요!</LogoText>
-        <LogoText style={{fontSize:16, color:'#808080', marginTop:20}}>같이 운동할 사람들을 찾기위해</LogoText>
-        <LogoText style={{fontSize:16, color:'#808080'}}>몇가지 동의가 필요합니다!</LogoText>
-
+        <LogoText style={{fontWeight: '600'}}>주변에 같이 운동</LogoText>
+        <LogoText style={{fontWeight: '600'}}>친구들을 함께 찾아봐요!</LogoText>
+        <LogoText style={{fontSize: 16, color: '#808080', marginTop: 20}}>
+          같이 운동할 사람들을 찾기위해
+        </LogoText>
+        <LogoText style={{fontSize: 16, color: '#808080'}}>
+          몇가지 동의가 필요합니다!
+        </LogoText>
       </TextContainer>
     </Container>
   );
-}
+};

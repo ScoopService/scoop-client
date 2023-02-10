@@ -1,0 +1,39 @@
+import styled from 'styled-components/native';
+import React, {useState} from 'react';
+import {Text} from 'react-native';
+
+const Wrapper = styled.View`
+  //background-color: white;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
+  width: 330px;
+  height: 62px;
+`;
+
+const ButtonText = styled.Text`
+  color: white;
+  font-size: 20px;
+  font-weight: 700;
+  margin: 9px 13px;
+`;
+
+interface Props {
+  text: String;
+  isOn: boolean;
+}
+
+const NextButton = ({text, isOn}: Props) => {
+  return isOn ? (
+    <Wrapper style={{backgroundColor: '#39cb51'}}>
+      <ButtonText>{text}</ButtonText>
+    </Wrapper>
+  ) : (
+    <Wrapper style={{backgroundColor: '#e9e9e9'}}>
+      <ButtonText>{text}</ButtonText>
+    </Wrapper>
+  );
+};
+
+export default NextButton;
