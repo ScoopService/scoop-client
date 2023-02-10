@@ -25,7 +25,7 @@ const GroupThumbnail = styled.Image`
   background-color: white;
   border-radius: 10px;
   margin: 8px 1px 10px 8px;
-  
+
   //border-bottom-left-radius: 10px;
   //border-top-left-radius: 10px;
 `;
@@ -50,7 +50,6 @@ const GroupInfo = styled.View`
 `;
 
 const GroupTitle = styled.Text`
-  height: 20%;
   font-weight: 700;
   font-size: 16px;
   margin-top: 5px;
@@ -69,7 +68,7 @@ const GroupDescription = styled.Text`
 const DetailContainer = styled.View`
   height: 40%;
   //background-color: #80c76d;
-  margin-top: 10px;
+  margin-top: 3px;
 `;
 
 const GroupDetail = styled.Text`
@@ -90,7 +89,13 @@ const GroupCard = () => {
         />
         <Container>
           <GroupInfo>
-            <View style={{flexDirection: 'row', justifyContent: 'flex-start', marginLeft:-3, marginTop:2}}>
+            <View
+              style={{
+                flexDirection: 'row',
+                justifyContent: 'flex-start',
+                marginLeft: -3,
+                marginTop: 2,
+              }}>
               <GroupTag name={'러닝'} />
               <GroupTag name={'초보'} />
               <GroupTag name={'연습'} />
@@ -99,12 +104,17 @@ const GroupCard = () => {
             {/*<GroupDescription>우리 모두 강백호가 되어보자</GroupDescription>*/}
 
             <DetailContainer>
-              <View style={{flexDirection: 'row', marginTop: 2, backgroundColor:'white'}}>
+              <View
+                style={{
+                  flexDirection: 'row',
+                  marginTop: 2,
+                  backgroundColor: 'white',
+                }}>
                 <Ionicons name={'location-sharp'} size={14} color={'#39CB51'} />
                 <GroupDetail>광진구</GroupDetail>
                 <FeatherIcons name={'calendar'} size={14} color={'#39CB51'} />
                 <GroupDetail>11월 17일 오후 7:00</GroupDetail>
-                {/*TODO: 줄 안맞는거 고치기 */}
+                {/*TODO: ios 줄 안맞는거 고치기 */}
               </View>
               {/*<View style={{flexDirection: 'row', marginTop: 2}}>*/}
               {/*  <FeatherIcons name={'calendar'} size={12} color={'#39CB51'} />*/}
