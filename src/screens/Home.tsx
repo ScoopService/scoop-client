@@ -62,7 +62,7 @@ const FABButton = styled.View`
   background-color: #39cb51;
   align-items: center;
   justify-content: center;
-  box-shadow: 10px 5px 5px black;
+  //box-shadow: 10px 5px 5px black;
 `;
 
 const actions = [
@@ -87,6 +87,7 @@ type RootStackParamList = {
   Home: undefined; // undefined because you aren't passing any params to the home screen
   Notifications: undefined;
   Search: undefined;
+  CreateMeetingName: undefined;
 };
 
 type HomeNavigationProp = StackNavigationProp<RootStackParamList, 'Home'>;
@@ -103,33 +104,37 @@ export const Home = ({navigation}: Props) => {
 
   return (
     <Container>
-      <LogoTopBar navigation={navigation} />
+      <LogoTopBar navigation={navigation}/>
       <ScrollView>
-        <ProfileBanner nickname="블루비" />
+        <ProfileBanner nickname="블루비"/>
         {/*<DateBanner />*/}
         <SectionTitle>다음 모임</SectionTitle>
         {/*<UpcomingGroups>*/}
-        <GroupCarousel />
+        <GroupCarousel/>
         {/*TODO: 유저 키 Props 전달하기 */}
         {/*</UpcomingGroups>*/}
-        <HorizontalRule />
+        <HorizontalRule/>
         <SectionTitle>인기 모임</SectionTitle>
         <PopularGroupsCard>
-          <GroupCard />
-          <GroupCard />
-          <GroupCard />
-          <GroupCard />
-          <GroupCard />
+          <GroupCard/>
+          <GroupCard/>
+          <GroupCard/>
+          <GroupCard/>
+          <GroupCard/>
         </PopularGroupsCard>
       </ScrollView>
       <FABContainer>
-        <Shadow style={{borderRadius: 110}}>
+        <Shadow style={{borderRadius: 30}} distance={8}
+          sides={{bottom: true, top: false, start: false, end: false}}
+                corners={{topEnd: false, topStart: false, bottomEnd: true, bottomStart: true}}
+        >
           <Pressable
             onPress={() => {
+              navigation.navigate('CreateMeetingName')
               console.log('go!');
             }}>
             <FABButton>
-              <Ionicons name={'add-outline'} color={'white'} size={35} />
+              <Ionicons name={'add-outline'} color={'white'} size={35}/>
             </FABButton>
           </Pressable>
         </Shadow>

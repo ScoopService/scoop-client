@@ -93,37 +93,37 @@ function HomeStackScreen() {
       />
       <HomeStack.Screen
         name="CreateMeetingName"
-        options={{headerShown: true}}
+        options={{headerShown: false}}
         component={CreateMeetingName}
       />
       <HomeStack.Screen
         name="CreateMeetingCount"
-        options={{headerShown: true}}
+        options={{headerShown: false}}
         component={CreateMeetingCount}
       />
       <HomeStack.Screen
         name="CreateMeetingType"
-        options={{headerShown: true}}
+        options={{headerShown: false}}
         component={CreateMeetingType}
       />
       <HomeStack.Screen
         name="CreateMeetingKeyword"
-        options={{headerShown: true}}
+        options={{headerShown: false}}
         component={CreateMeetingKeyword}
       />
       <HomeStack.Screen
         name="CreateMeetingDescription"
-        options={{headerShown: true}}
+        options={{headerShown: false}}
         component={CreateMeetingDescription}
       />
       <HomeStack.Screen
         name="CreateMeetingPlace"
-        options={{headerShown: true}}
+        options={{headerShown: false}}
         component={CreateMeetingPlace}
       />
       <HomeStack.Screen
         name="CreateMeetingDate"
-        options={{headerShown: true}}
+        options={{headerShown: false}}
         component={CreateMeetingDate}
       />
     </HomeStack.Navigator>

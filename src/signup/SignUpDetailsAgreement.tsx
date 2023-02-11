@@ -271,6 +271,7 @@ export const SignUpDetailsAgreement = ({navigation}: Props) => {
           onPress={() => {
             navigation.navigate('SignUpDetailsName');
           }}>
+          {/*TODO: isOn 아닐때 onPress 끄기*/}
           {isOn ? (
             <NextButton text={'확인했어요'} isOn={false} />
           ) : (

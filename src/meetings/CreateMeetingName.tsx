@@ -93,15 +93,15 @@ const NextButtonContainer = styled.View`
 `;
 
 type RootStackParamList = {
-  Meeting: undefined; // undefined because you aren't passing any params to the home screen
-  SignUpDetailsAgreement: undefined;
-  SignUpDetailsProfileImage: undefined;
+  Home: undefined;
 };
 
-type SignUpNavigationProp = StackNavigationProp<RootStackParamList, 'Meeting'>;
+//TODO: SignupxAgreement 확인하기
+
+type HomeNavigationProp = StackNavigationProp<RootStackParamList, 'Home'>;
 
 type Props = {
-  navigation: SignUpNavigationProp;
+  navigation: HomeNavigationProp;
 };
 
 export const CreateMeetingName = ({navigation}: Props) => {
