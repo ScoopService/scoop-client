@@ -83,7 +83,7 @@ const CustomTextInput = styled.TextInput`
 
 const NextButtonContainer = styled.View`
   position: absolute;
-  top: ${SCREEN_HEIGHT/1.25}px;
+  top: ${SCREEN_HEIGHT / 1.25}px;
   width: ${SCREEN_WIDTH}px;
   justify-content: center;
   align-items: center;
