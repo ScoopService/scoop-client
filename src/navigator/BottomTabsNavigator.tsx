@@ -21,12 +21,20 @@ import {SignUpDetailsAgreement} from '../signup/SignUpDetailsAgreement';
 import {SignUpDetailsName} from '../signup/SignUpDetailsName';
 import {SignUpDetailsNickname} from '../signup/SignUpDetailsNickname';
 import {SignUpDetailsProfileImage} from '../signup/SignUpDetailsProfileImage';
-import {SignUpDetailsLocation} from "../signup/SignUpDetailsLocation";
-import {SignUpDetailsSports} from "../signup/SignUpDetailsSports";
-import {SignUpDetailsKeyword} from "../signup/SignUpDetailsKeyword";
-import {SignUpDetailsDone} from "../signup/SignUpDetailsDone";
+import {SignUpDetailsLocation} from '../signup/SignUpDetailsLocation';
+import {SignUpDetailsSports} from '../signup/SignUpDetailsSports';
+import {SignUpDetailsKeyword} from '../signup/SignUpDetailsKeyword';
+import {SignUpDetailsDone} from '../signup/SignUpDetailsDone';
+import {CreateMeetingName} from '../meetings/CreateMeetingName';
+import {CreateMeetingKeyword} from '../meetings/CreateMeetingKeyword';
+import {CreateMeetingType} from '../meetings/CreateMeetingType';
+import {CreateMeetingDescription} from '../meetings/CreateMeetingDescription';
+import {CreateMeetingLocation} from '../meetings/CreateMeetingLocation';
+import {CreateMeetingCount} from '../meetings/CreateMeetingCount';
+import {CreateMeetingDate} from '../meetings/CreateMeetingDate';
+import {getFocusedRouteNameFromRoute} from '@react-navigation/native';
 
-type RootStackParamList = {
+type HomeStackParamList = {
   Home: undefined; // undefined because you aren't passing any params to the home screen
   GroupSearch: undefined;
   Notifications: undefined;
@@ -37,6 +45,13 @@ type RootStackParamList = {
   ManageGroups: undefined;
   LikedGroups: undefined;
   History: undefined;
+  CreateMeetingName: undefined;
+  CreateMeetingCount: undefined;
+  CreateMeetingType: undefined;
+  CreateMeetingKeyword: undefined;
+  CreateMeetingDescription: undefined;
+  CreateMeetingLocation: undefined;
+  CreateMeetingDate: undefined;
 };
 
 type AppStackParamList = {
@@ -55,11 +70,32 @@ type AppStackParamList = {
 };
 
 const RootStack = createStackNavigator<AppStackParamList>();
-const HomeStack = createStackNavigator<RootStackParamList>();
-const GroupSearchStack = createStackNavigator<RootStackParamList>();
-const MyPageStack = createStackNavigator<RootStackParamList>();
+const HomeStack = createStackNavigator<HomeStackParamList>();
+const GroupSearchStack = createStackNavigator<HomeStackParamList>();
+const MyPageStack = createStackNavigator<HomeStackParamList>();
 
-function HomeStackScreen() {
+// @ts-ignore
+function HomeStackScreen({navigation, route}) {
+  const tabHiddenRoutes = [
+    'Search',
+    'Notifications',
+    'CreateMeetingName',
+    'CreateMeetingCount',
+    'CreateMeetingType',
+    'CreateMeetingKeyword',
+    'CreateMeetingDescription',
+    'CreateMeetingPlace',
+    'CreateMeetingDate',
+  ];
+
+  React.useLayoutEffect(() => {
+    if (tabHiddenRoutes.includes(getFocusedRouteNameFromRoute(route)!)) {
+      navigation.setOptions({tabBarStyle: {display: 'none'}});
+    } else {
+      navigation.setOptions({tabBarStyle: {height: 76}});
+    }
+  });
+
   return (
     <HomeStack.Navigator>
       <HomeStack.Screen
@@ -76,6 +112,41 @@ function HomeStackScreen() {
         name="Notifications"
         options={{headerShown: true}}
         component={Notification}
+      />
+      <HomeStack.Screen
+        name="CreateMeetingName"
+        options={{headerShown: false}}
+        component={CreateMeetingName}
+      />
+      <HomeStack.Screen
+        name="CreateMeetingCount"
+        options={{headerShown: false}}
+        component={CreateMeetingCount}
+      />
+      <HomeStack.Screen
+        name="CreateMeetingType"
+        options={{headerShown: false}}
+        component={CreateMeetingType}
+      />
+      <HomeStack.Screen
+        name="CreateMeetingKeyword"
+        options={{headerShown: false}}
+        component={CreateMeetingKeyword}
+      />
+      <HomeStack.Screen
+        name="CreateMeetingDescription"
+        options={{headerShown: false}}
+        component={CreateMeetingDescription}
+      />
+      <HomeStack.Screen
+        name="CreateMeetingLocation"
+        options={{headerShown: false}}
+        component={CreateMeetingLocation}
+      />
+      <HomeStack.Screen
+        name="CreateMeetingDate"
+        options={{headerShown: false}}
+        component={CreateMeetingDate}
       />
     </HomeStack.Navigator>
   );

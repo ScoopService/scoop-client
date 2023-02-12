@@ -7,8 +7,6 @@ import {
   Dimensions,
   TouchableOpacity,
   TextInput,
-  Platform,
-  PermissionsAndroid,
 } from 'react-native';
 import {Tutorial} from '../carousel/Tutorial';
 import WelcomeCarousel from '../carousel/WelcomeCarousel';
@@ -19,8 +17,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import NextButton from '../components/NextButton';
 import {HorizontalRule} from '../components/HorizontalRule';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
-import Geolocation from 'react-native-geolocation-service';
-import axios from 'axios';
+import FilterButton from '../components/FilterButton';
 
 const {width: SCREEN_WIDTH} = Dimensions.get('window');
 const {height: SCREEN_HEIGHT} = Dimensions.get('window');
@@ -51,19 +48,19 @@ const TitleView = styled.View`
   height: 40px;
   //background-color: pink;
   margin-left: 30px;
-  margin-top: 21px;
+  margin-top: 40px;
 `;
 
 const TitleText = styled.Text`
-  font-size: 25px;
+  font-size: 23px;
   font-weight: 600;
+  margin-top: 4px;
 `;
 
 const TitleDescription = styled.Text`
   font-size: 16px;
   font-weight: 500;
   color: #808080;
-  margin-top: 7px;
 `;
 
 const TextInputContainer = styled.View`
@@ -73,12 +70,18 @@ const TextInputContainer = styled.View`
   border-bottom-width: 0.5px;
   flex-direction: row;
   align-items: center;
+  margin-top: 15px;
 `;
 const CustomTextInput = styled.TextInput`
   font-size: 19px;
   width: 95%;
   margin-top: 10px;
   height: 50px;
+`;
+
+const SmallDescription = styled.Text`
+  font-size: 12px;
+  color: #c5c5c5;
 `;
 
 const NextButtonContainer = styled.View`
@@ -91,90 +94,26 @@ const NextButtonContainer = styled.View`
   //background-color: black;
 `;
 
-const SmallDescription = styled.Text`
-  font-size: 12px;
-  color: #c5c5c5;
-`;
-
 type RootStackParamList = {
-  SignUp: undefined; // undefined because you aren't passing any params to the home screen
-  SignUpDetailsProfileImage: undefined;
-  SignUpDetailsSports: undefined;
+  Home: undefined;
+  CreateMeetingCount: undefined;
+  CreateMeetingType: undefined;
 };
 
-type SignUpNavigationProp = StackNavigationProp<RootStackParamList, 'SignUp'>;
+//TODO: SignupxAgreement 확인하기
+
+type HomeNavigationProp = StackNavigationProp<RootStackParamList, 'Home'>;
 
 type Props = {
-  navigation: SignUpNavigationProp;
+  navigation: HomeNavigationProp;
 };
 
-interface ILocation {
-  latitude: number;
-  longitude: number;
-}
-
-const API_KEY = 'AIzaSyBQU2FYDE_pJxBG45tgQZbGY6wZX72mbuM';
-
-export const SignUpDetailsLocation = ({navigation}: Props) => {
-  const [location, setLocation] = useState<ILocation | undefined>(undefined);
-  const [address, setAddress] = useState('');
+export const CreateMeetingCount = ({navigation}: Props) => {
+  const [name, setName] = useState('');
 
   useEffect(() => {
-    // Geolocation
-    async function getLocation() {
-      Geolocation.getCurrentPosition(
-        position => {
-          const {latitude, longitude} = position.coords;
-          setLocation({
-            latitude,
-            longitude,
-          });
-          // console.log(location?.latitude, location?.longitude);
-        },
-        error => {
-          console.log(error.code, error.message);
-        },
-        {enableHighAccuracy: true, timeout: 15000, maximumAge: 10000},
-      );
-    }
-
-    getLocation();
+    //console.log('Home.tsx effect');
   }, []);
-
-  useEffect(() => {
-    // Reverse Geocoding
-    if (!location) {
-      return;
-    }
-    const getAddress = () => {
-      console.log(`${location?.latitude},${location?.longitude}`);
-      fetch(
-        'https://maps.googleapis.com/maps/api/geocode/json?address=' +
-          location?.latitude +
-          // '37.499699' +
-          ',' +
-          location?.longitude +
-          // '127.008768' +
-          '&key=' +
-          API_KEY +
-          '&language=ko',
-      )
-        .then(response => response.json())
-        .then(responseJson => {
-          console.log(responseJson.results[2].address_components[1]);
-          setAddress(
-            responseJson.results[2].address_components[3].long_name +
-              ' ' +
-              responseJson.results[2].address_components[2].long_name +
-              ' ' +
-              responseJson.results[2].address_components[1].long_name,
-          );
-        })
-        .catch(err => console.log(err));
-    };
-
-    getAddress();
-  }, [location]);
 
   return (
     <Container>
@@ -196,20 +135,29 @@ export const SignUpDetailsLocation = ({navigation}: Props) => {
         </View>
       </ScreenTitleView>
 
+      <View
+        style={{alignItems: 'center', justifyContent: 'center'}}>
+        <Image
+          style={{width: 335, height: 37, resizeMode: 'contain'}}
+          source={require('../assets/images/progressBar/Variant2.png')}
+        />
+      </View>
       <TitleView>
-        <TitleText>활동지역을 설정해주세요</TitleText>
-        <TitleDescription>주로 운동하는 지역을 정해봐요!</TitleDescription>
+        <TitleDescription>모임 개설하기</TitleDescription>
+        <TitleText>같이 운동할 인원을 정해요!</TitleText>
       </TitleView>
 
       <View
         style={{justifyContent: 'center', alignItems: 'center', marginTop: 60}}>
+        <View style={{justifyContent: 'flex-start', width: 335, }}>
+          <Text style={{fontWeight: '700', fontSize: 18}}>모임 인원</Text>
+        </View>
         <TextInputContainer>
           <CustomTextInput
             placeholderTextColor={'#d9d9d9'}
-            placeholder={'활동 지역'}
-            maxLength={16}>
-            {address ? `${address}` : '잠시만 기다려주세요..'}
-          </CustomTextInput>
+            placeholder={'인원 수'}
+            maxLength={16}
+            onChangeText={text => setName(text)}></CustomTextInput>
           <Ionicons
             name={'close-circle-sharp'}
             style={{color: '#C5C5C5', marginTop: 10}}
@@ -222,14 +170,22 @@ export const SignUpDetailsLocation = ({navigation}: Props) => {
             비속어, 특수문자는 사용할 수 없어요
           </SmallDescription>
         </View>
-      </View>
 
+        <View style={{justifyContent: 'flex-start', width: 335, marginTop: 33}}>
+          <Text style={{fontWeight: '700', fontSize: 18}}>성별</Text>
+        </View>
+        <View style={{flexDirection: 'row', width:335, marginTop:17}}>
+          <FilterButton name={'남성'} />
+          <FilterButton name={'여성'} />
+          <FilterButton name={'혼성'} />
+        </View>
+      </View>
       <NextButtonContainer>
         <Pressable
           onPress={() => {
-            navigation.navigate('SignUpDetailsSports');
+            navigation.navigate('CreateMeetingType');
           }}>
-          {address ? (
+          {name ? (
             <NextButton text={'다음으로 넘어가기'} isOn={true} />
           ) : (
             <NextButton text={'다음으로 넘어가기'} isOn={false} />
