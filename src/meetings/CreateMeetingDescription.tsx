@@ -17,6 +17,8 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import NextButton from '../components/NextButton';
 import {HorizontalRule} from '../components/HorizontalRule';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import FilterButton from '../components/FilterButton';
+import {CreateMeetingLocation} from "./CreateMeetingLocation";
 
 const {width: SCREEN_WIDTH} = Dimensions.get('window');
 const {height: SCREEN_HEIGHT} = Dimensions.get('window');
@@ -47,19 +49,19 @@ const TitleView = styled.View`
   height: 40px;
   //background-color: pink;
   margin-left: 30px;
-  margin-top: 21px;
+  margin-top: 40px;
 `;
 
 const TitleText = styled.Text`
-  font-size: 25px;
+  font-size: 23px;
   font-weight: 600;
+  margin-top: 4px;
 `;
 
 const TitleDescription = styled.Text`
   font-size: 16px;
   font-weight: 500;
   color: #808080;
-  margin-top: 7px;
 `;
 
 const TextInputContainer = styled.View`
@@ -69,6 +71,7 @@ const TextInputContainer = styled.View`
   border-bottom-width: 0.5px;
   flex-direction: row;
   align-items: center;
+  margin-top: 15px;
 `;
 const CustomTextInput = styled.TextInput`
   font-size: 19px;
@@ -84,7 +87,7 @@ const SmallDescription = styled.Text`
 
 const NextButtonContainer = styled.View`
   position: absolute;
-  top: ${SCREEN_HEIGHT/1.25}px;
+  top: ${SCREEN_HEIGHT / 1.25}px;
   width: ${SCREEN_WIDTH}px;
   justify-content: center;
   align-items: center;
@@ -93,15 +96,17 @@ const NextButtonContainer = styled.View`
 `;
 
 type RootStackParamList = {
-  Meeting: undefined; // undefined because you aren't passing any params to the home screen
-  SignUpDetailsAgreement: undefined;
-  SignUpDetailsProfileImage: undefined;
+  Home: undefined;
+  CreateMeetingKeyword: undefined;
+  CreateMeetingLocation: undefined;
 };
 
-type SignUpNavigationProp = StackNavigationProp<RootStackParamList, 'Meeting'>;
+//TODO: SignupxAgreement 확인하기
+
+type HomeNavigationProp = StackNavigationProp<RootStackParamList, 'Home'>;
 
 type Props = {
-  navigation: SignUpNavigationProp;
+  navigation: HomeNavigationProp;
 };
 
 export const CreateMeetingDescription = ({navigation}: Props) => {
@@ -131,36 +136,54 @@ export const CreateMeetingDescription = ({navigation}: Props) => {
         </View>
       </ScreenTitleView>
 
+      <View style={{alignItems: 'center', justifyContent: 'center'}}>
+        <Image
+          style={{width: 335, height: 37, resizeMode: 'contain'}}
+          source={require('../assets/images/progressBar/Variant5.png')}
+        />
+      </View>
       <TitleView>
-        <TitleText>모임 이름과 운동종목을 정해봐요!</TitleText>
         <TitleDescription>모임 개설하기</TitleDescription>
+        <TitleText>모임에 대한 간단한 설명과</TitleText>
+        <TitleText>이미지를 설정해요!</TitleText>
       </TitleView>
 
       <View
         style={{justifyContent: 'center', alignItems: 'center', marginTop: 60}}>
-        <TextInputContainer>
-          <CustomTextInput
-            placeholderTextColor={'#d9d9d9'}
-            placeholder={'이름'}
-            maxLength={16}
-            onChangeText={text => setName(text)}></CustomTextInput>
-          <Ionicons
-            name={'close-circle-sharp'}
-            style={{color: '#C5C5C5', marginTop: 10}}
-            size={22}
+        <View style={{justifyContent: 'flex-start', width: 335}}>
+          <Text style={{fontWeight: '700', fontSize: 18}}>모임 설명</Text>
+        </View>
+        <View style={{flexDirection: 'row', width: 335, marginTop: 17}}>
+          <TextInput
+            style={{
+              width: 335,
+              height: 140,
+              borderColor: '#E6E6E6',
+              borderRadius: 5,
+              borderWidth: 1,
+              textAlignVertical: 'top',
+              fontSize: 14,
+              color: '#CCCCCC',
+            }}
+            placeholder={'모임에 대한 소개글을 작성해 주세요!'}></TextInput>
+        </View>
+
+        <View style={{justifyContent: 'flex-start', width: 335, marginTop: 33}}>
+          <Text style={{fontWeight: '700', fontSize: 18}}>
+            모임 이미지 설정
+          </Text>
+        </View>
+        <View style={{flexDirection: 'row', width: 335, marginTop: 17}}>
+          <Image
+            style={{width: 80, height: 80}}
+            source={require('../assets/images/Group5982.png')}
           />
-          {/* TODO: onPress -> Text 지우기*/}
-        </TextInputContainer>
-        <View style={{justifyContent: 'flex-start', width: 330, marginTop: 10}}>
-          <SmallDescription>
-            비속어, 특수문자는 사용할 수 없어요
-          </SmallDescription>
         </View>
       </View>
       <NextButtonContainer>
         <Pressable
           onPress={() => {
-            navigation.navigate('SignUpDetailsProfileImage');
+            navigation.navigate('CreateMeetingLocation');
           }}>
           {name ? (
             <NextButton text={'다음으로 넘어가기'} isOn={true} />
