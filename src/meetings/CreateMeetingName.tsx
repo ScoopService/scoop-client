@@ -17,6 +17,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import NextButton from '../components/NextButton';
 import {HorizontalRule} from '../components/HorizontalRule';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import FilterButton from '../components/FilterButton';
 
 const {width: SCREEN_WIDTH} = Dimensions.get('window');
 const {height: SCREEN_HEIGHT} = Dimensions.get('window');
@@ -47,19 +48,19 @@ const TitleView = styled.View`
   height: 40px;
   //background-color: pink;
   margin-left: 30px;
-  margin-top: 21px;
+  margin-top: 40px;
 `;
 
 const TitleText = styled.Text`
-  font-size: 25px;
+  font-size: 23px;
   font-weight: 600;
+  margin-top: 4px;
 `;
 
 const TitleDescription = styled.Text`
   font-size: 16px;
   font-weight: 500;
   color: #808080;
-  margin-top: 7px;
 `;
 
 const TextInputContainer = styled.View`
@@ -69,6 +70,7 @@ const TextInputContainer = styled.View`
   border-bottom-width: 0.5px;
   flex-direction: row;
   align-items: center;
+  margin-top: 15px;
 `;
 const CustomTextInput = styled.TextInput`
   font-size: 19px;
@@ -84,7 +86,7 @@ const SmallDescription = styled.Text`
 
 const NextButtonContainer = styled.View`
   position: absolute;
-  top: ${SCREEN_HEIGHT/1.25}px;
+  top: ${SCREEN_HEIGHT / 1.25}px;
   width: ${SCREEN_WIDTH}px;
   justify-content: center;
   align-items: center;
@@ -94,9 +96,8 @@ const NextButtonContainer = styled.View`
 
 type RootStackParamList = {
   Home: undefined;
+  CreateMeetingCount: undefined;
 };
-
-//TODO: SignupxAgreement 확인하기
 
 type HomeNavigationProp = StackNavigationProp<RootStackParamList, 'Home'>;
 
@@ -131,13 +132,23 @@ export const CreateMeetingName = ({navigation}: Props) => {
         </View>
       </ScreenTitleView>
 
+      <View
+        style={{alignItems: 'center', justifyContent: 'center'}}>
+        <Image
+          style={{width: 335, height: 37, resizeMode: 'contain'}}
+          source={require('../assets/images/progressBar/Variant1.png')}
+        />
+      </View>
       <TitleView>
-        <TitleText>모임 이름과 운동종목을 정해봐요!</TitleText>
         <TitleDescription>모임 개설하기</TitleDescription>
+        <TitleText>모임 이름과 운동종목을 정해봐요!</TitleText>
       </TitleView>
 
       <View
         style={{justifyContent: 'center', alignItems: 'center', marginTop: 60}}>
+        <View style={{justifyContent: 'flex-start', width: 335, }}>
+          <Text style={{fontWeight: '700', fontSize: 18}}>모임 이름</Text>
+        </View>
         <TextInputContainer>
           <CustomTextInput
             placeholderTextColor={'#d9d9d9'}
@@ -156,11 +167,22 @@ export const CreateMeetingName = ({navigation}: Props) => {
             비속어, 특수문자는 사용할 수 없어요
           </SmallDescription>
         </View>
+
+        <View style={{justifyContent: 'flex-start', width: 335, marginTop: 33}}>
+          <Text style={{fontWeight: '700', fontSize: 18}}>운동 종목</Text>
+        </View>
+        <View style={{flexDirection: 'row', width:335, marginTop:17}}>
+          <FilterButton name={'풋살'} />
+          <FilterButton name={'농구'} />
+          <FilterButton name={'러닝'} />
+          <FilterButton name={'배드민턴'} />
+          <FilterButton name={'볼링'} />
+        </View>
       </View>
       <NextButtonContainer>
         <Pressable
           onPress={() => {
-            navigation.navigate('SignUpDetailsProfileImage');
+            navigation.navigate('CreateMeetingCount');
           }}>
           {name ? (
             <NextButton text={'다음으로 넘어가기'} isOn={true} />
