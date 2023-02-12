@@ -29,11 +29,12 @@ import {CreateMeetingName} from '../meetings/CreateMeetingName';
 import {CreateMeetingKeyword} from '../meetings/CreateMeetingKeyword';
 import {CreateMeetingType} from '../meetings/CreateMeetingType';
 import {CreateMeetingDescription} from '../meetings/CreateMeetingDescription';
-import {CreateMeetingPlace} from '../meetings/CreateMeetingPlace';
+import {CreateMeetingLocation} from '../meetings/CreateMeetingLocation';
 import {CreateMeetingCount} from '../meetings/CreateMeetingCount';
 import {CreateMeetingDate} from '../meetings/CreateMeetingDate';
+import {getFocusedRouteNameFromRoute} from '@react-navigation/native';
 
-type RootStackParamList = {
+type HomeStackParamList = {
   Home: undefined; // undefined because you aren't passing any params to the home screen
   GroupSearch: undefined;
   Notifications: undefined;
@@ -49,7 +50,7 @@ type RootStackParamList = {
   CreateMeetingType: undefined;
   CreateMeetingKeyword: undefined;
   CreateMeetingDescription: undefined;
-  CreateMeetingPlace: undefined;
+  CreateMeetingLocation: undefined;
   CreateMeetingDate: undefined;
 };
 
@@ -69,11 +70,32 @@ type AppStackParamList = {
 };
 
 const RootStack = createStackNavigator<AppStackParamList>();
-const HomeStack = createStackNavigator<RootStackParamList>();
-const GroupSearchStack = createStackNavigator<RootStackParamList>();
-const MyPageStack = createStackNavigator<RootStackParamList>();
+const HomeStack = createStackNavigator<HomeStackParamList>();
+const GroupSearchStack = createStackNavigator<HomeStackParamList>();
+const MyPageStack = createStackNavigator<HomeStackParamList>();
 
-function HomeStackScreen() {
+// @ts-ignore
+function HomeStackScreen({navigation, route}) {
+  const tabHiddenRoutes = [
+    'Search',
+    'Notifications',
+    'CreateMeetingName',
+    'CreateMeetingCount',
+    'CreateMeetingType',
+    'CreateMeetingKeyword',
+    'CreateMeetingDescription',
+    'CreateMeetingPlace',
+    'CreateMeetingDate',
+  ];
+
+  React.useLayoutEffect(() => {
+    if (tabHiddenRoutes.includes(getFocusedRouteNameFromRoute(route)!)) {
+      navigation.setOptions({tabBarStyle: {display: 'none'}});
+    } else {
+      navigation.setOptions({tabBarStyle: {height: 76}});
+    }
+  });
+
   return (
     <HomeStack.Navigator>
       <HomeStack.Screen
@@ -117,9 +139,9 @@ function HomeStackScreen() {
         component={CreateMeetingDescription}
       />
       <HomeStack.Screen
-        name="CreateMeetingPlace"
+        name="CreateMeetingLocation"
         options={{headerShown: false}}
-        component={CreateMeetingPlace}
+        component={CreateMeetingLocation}
       />
       <HomeStack.Screen
         name="CreateMeetingDate"
