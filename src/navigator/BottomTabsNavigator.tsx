@@ -84,7 +84,7 @@ function HomeStackScreen({navigation, route}) {
     'CreateMeetingType',
     'CreateMeetingKeyword',
     'CreateMeetingDescription',
-    'CreateMeetingPlace',
+    'CreateMeetingLocation',
     'CreateMeetingDate',
   ];
 
@@ -184,7 +184,7 @@ function MyPageStackScreen() {
       />
       <MyPageStack.Screen
         name="ProfileSettings"
-        options={{headerShown: true}}
+        options={{headerShown: false}}
         component={ProfileSettings}
       />
       <MyPageStack.Screen
