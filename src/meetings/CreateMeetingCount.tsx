@@ -135,8 +135,7 @@ export const CreateMeetingCount = ({navigation}: Props) => {
         </View>
       </ScreenTitleView>
 
-      <View
-        style={{alignItems: 'center', justifyContent: 'center'}}>
+      <View style={{alignItems: 'center', justifyContent: 'center'}}>
         <Image
           style={{width: 335, height: 37, resizeMode: 'contain'}}
           source={require('../assets/images/progressBar/Variant2.png')}
@@ -149,7 +148,7 @@ export const CreateMeetingCount = ({navigation}: Props) => {
 
       <View
         style={{justifyContent: 'center', alignItems: 'center', marginTop: 60}}>
-        <View style={{justifyContent: 'flex-start', width: 335, }}>
+        <View style={{justifyContent: 'flex-start', width: 335}}>
           <Text style={{fontWeight: '700', fontSize: 18}}>모임 인원</Text>
         </View>
         <TextInputContainer>
@@ -174,7 +173,7 @@ export const CreateMeetingCount = ({navigation}: Props) => {
         <View style={{justifyContent: 'flex-start', width: 335, marginTop: 33}}>
           <Text style={{fontWeight: '700', fontSize: 18}}>성별</Text>
         </View>
-        <View style={{flexDirection: 'row', width:335, marginTop:17}}>
+        <View style={{flexDirection: 'row', width: 335, marginTop: 17}}>
           <FilterButton name={'남성'} />
           <FilterButton name={'여성'} />
           <FilterButton name={'혼성'} />

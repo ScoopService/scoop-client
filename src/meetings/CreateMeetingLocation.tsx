@@ -172,7 +172,7 @@ export const CreateMeetingLocation = ({navigation}: Props) => {
         .catch(err => console.log(err));
     };
 
-    getAddress();
+    // getAddress();
   }, [location]);
   return (
     <Container>

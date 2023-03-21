@@ -77,7 +77,7 @@ export const SignUp = ({navigation}: Props) => {
           onPress={() => {
             navigation.replace('HomeBottomTabs');
           }}>
-          <Text style={{color: '#C5C5C5'}}>회원가입하기</Text>
+          <Text style={{color: 'black'}}>회원가입하기dfgdfgh</Text>
         </Pressable>
       </View>
     </View>

@@ -129,7 +129,7 @@ export const SignUpDetailsLocation = ({navigation}: Props) => {
             latitude,
             longitude,
           });
-          // console.log(location?.latitude, location?.longitude);
+          console.log(location?.latitude, location?.longitude);
         },
         error => {
           console.log(error.code, error.message);

@@ -152,6 +152,7 @@ export const CreateMeetingDescription = ({navigation}: Props) => {
         style={{justifyContent: 'center', alignItems: 'center', marginTop: 60}}>
         <View style={{justifyContent: 'flex-start', width: 335}}>
           <Text style={{fontWeight: '700', fontSize: 18}}>모임 설명</Text>
+          {/*TODO: ios 텍스트 위치 바꾸기*/}
         </View>
         <View style={{flexDirection: 'row', width: 335, marginTop: 17}}>
           <TextInput
@@ -186,9 +187,9 @@ export const CreateMeetingDescription = ({navigation}: Props) => {
             navigation.navigate('CreateMeetingLocation');
           }}>
           {name ? (
-            <NextButton text={'다음으로 넘어가기'} isOn={true} />
+            <NextButton text={'다음으로 넘어가기'} isOn={true}/>
           ) : (
-            <NextButton text={'다음으로 넘어가기'} isOn={false} />
+            <NextButton text={'다음으로 넘어가기'} isOn={false}/>
           )}
         </Pressable>
       </NextButtonContainer>
